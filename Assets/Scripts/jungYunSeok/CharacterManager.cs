@@ -9,17 +9,17 @@ public class CharacterManager: MonoBehaviour
     static public CharacterManager charManager;
     public GameManager gameManager;
 
-    //Ä³¸¯ÅÍµé ½ºÅ©¸³Æ®¸¦ °¡Á®¿Ã ¼ö ÀÖ´Â obj List
+    //Ä³ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ obj List
     public List<GameObject> charList = new List<GameObject>();
-    GameObject highlightedChar = null;    //ÇöÀç °­Á¶µÈ Ä³¸¯ÅÍ obj¸¦ ´ã½À´Ï´Ù.
+    GameObject highlightedChar = null;    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ objï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
-    //UIÅ¬¸¯À» À§ÇÑ Àç·áµé
+    //UIÅ¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] GameObject canvas; 
     GraphicRaycaster gRay;
     PointerEventData pointerEventData;
     EventSystem eventSystem;
 
-    //text°ü·Ã Ãâ·ÂÀ» À§ÇÑ text¸ðÀ½µé
+    //textï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ textï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Text charDetailText;
     public Text characteristicText;
 
@@ -47,14 +47,14 @@ public class CharacterManager: MonoBehaviour
     }
 
     /// <summary>
-    /// pc¹öÀü
-    /// ¸¶¿ì½º·Î ÇØ´ç Ä³¸¯ÅÍ¸¦ Å¬¸¯ÇÒ °æ¿ì ÇØ´ç Ä³¸¯ÅÍ°¡ °­Á¶µÇ°í °ü·Ã µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·ÂÇÕ´Ï´Ù.
+    /// pcï¿½ï¿½ï¿½ï¿½
+    /// ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     void Click2Mouse()
     {
-        //ÀÌº¥Æ® ½Ã½ºÅÛÀ» pointerEventData¿¡ Áý¾î³ÖÀ½
+        //ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ pointerEventDataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         pointerEventData = new PointerEventData(eventSystem);
-        //¸¶¿ì½ºÆ÷Áö¼ÇÀ» pointerEventData Æ÷Áö¼Ç¿¡ Áý¾î³ÖÀ½
+        //ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pointerEventData ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         pointerEventData.position = Input.mousePosition;
 
         List<RaycastResult> results = new List<RaycastResult>();
@@ -65,24 +65,24 @@ public class CharacterManager: MonoBehaviour
         GameObject clickCard = results[0].gameObject;
         if (clickCard.CompareTag("CharCard"))
         {
-            //È­¸é¿¡ Ä³¸¯ Á¤º¸ Ãâ·Â
+            //È­ï¿½é¿¡ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             PrintCharText(clickCard);
 
-            //Å¬¸¯ÇÑ Ä³¸¯ÅÍ °­Á¶
+            //Å¬ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             HighlightCharacter(clickCard);
         }
     }
 
 
     /// <summary>
-    /// ¾Èµå·ÎÀÌµå ¹öÀü
-    /// ¸¶¿ì½º·Î ÇØ´ç Ä³¸¯ÅÍ¸¦ Å¬¸¯ÇÒ °æ¿ì ÇØ´ç Ä³¸¯ÅÍ°¡ °­Á¶µÇ°í °ü·Ã µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·ÂÇÕ´Ï´Ù.
+    /// ï¿½Èµï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     void Click2Android()
     {
-        //ÀÌº¥Æ® ½Ã½ºÅÛÀ» pointerEventData¿¡ Áý¾î³ÖÀ½
+        //ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ pointerEventDataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         pointerEventData = new PointerEventData(eventSystem);
-        //¸¶¿ì½ºÆ÷Áö¼ÇÀ» pointerEventData Æ÷Áö¼Ç¿¡ Áý¾î³ÖÀ½
+        //ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pointerEventData ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         pointerEventData.position = Input.GetTouch(0).position;
 
         List<RaycastResult> results = new List<RaycastResult>();
@@ -93,18 +93,18 @@ public class CharacterManager: MonoBehaviour
         GameObject clickCard = results[0].gameObject;
         if (clickCard.CompareTag("CharCard"))
         {
-            //È­¸é¿¡ Ä³¸¯ Á¤º¸ Ãâ·Â
+            //È­ï¿½é¿¡ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             PrintCharText(clickCard);
 
-            //Å¬¸¯ÇÑ Ä³¸¯ÅÍ °­Á¶
+            //Å¬ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             HighlightCharacter(clickCard);
         }
     }
 
 
     /// <summary>
-    /// °øÅë
-    /// clickÇÔ¼ö¸¦ ÅëÇØ ¹ÞÀº Ä³¸¯ÅÍ ¿ÀºêÁ§Æ®¿¡¼­ µ¥ÀÌÅÍ¸¦ »Ì¾Æ È­¸é¿¡ Ãâ·ÂÇÕ´Ï´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½
+    /// clickï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ì¾ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="getObj"></param>
     void PrintCharText(GameObject getObj)
@@ -114,13 +114,13 @@ public class CharacterManager: MonoBehaviour
         characteristicText.text = getObjInfo.charInfo.Characteristic;
     }
 
-    //clickÇÔ¼ö¸¦ ÅëÇØ ¹ÞÀº Ä³¸¯ÅÍ¸¦ °­Á¶ÇÕ´Ï´Ù.
+    //clickï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     void HighlightCharacter(GameObject getObj)
     {
-        //Å¬¸¯ÇÑ objÀÇ ÀÌ¹ÌÁö º¯¼öµéÀ» ¹Þ¾Æ¿É´Ï´Ù.
+        //Å¬ï¿½ï¿½ï¿½ï¿½ objï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿É´Ï´ï¿½.
         Image getObjIMG = getObj.GetComponent<Image>();
 
-        //¼±ÅÃÇÑ ÀÌ¹ÌÁöÀÇ »öÀ» °­Á¶ÇÏ°Å³ª Ãë¼ÒÇÕ´Ï´Ù.
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         if (getObjIMG.color != Color.yellow)
             getObjIMG.color = Color.yellow;
         else
@@ -129,24 +129,22 @@ public class CharacterManager: MonoBehaviour
 
         if(!highlightedChar)
         {
-            //ÇØ´ç Ä³¸¯ÅÍ¸¦ °­Á¶
+            //ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
             getObjIMG.color = Color.yellow;
             highlightedChar = getObj;
         }
 
         else if(getObj == highlightedChar)
         {
-            //1. Å¬¸¯ÇÑ °´Ã¼¿Í ÇÏÀÌ¶óÀÌÆ® Ä³¸¯ÅÍ°¡ µ¿ÀÏÇÒ °æ¿ì
-            //Å¬¸¯ÇÑ Ä³¸¯ÅÍÀÇ »öÀ» ¿ø·¡´ë·Î µÇµ¹¸³´Ï´Ù.
+            //1. Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+            //Å¬ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
             getObjIMG.color = new Color(143f / 255f, 170f / 255f, 220f / 255f);
             highlightedChar = null;
         }
 
         else if(getObj != highlightedChar)
         {
-            //2. Å¬¸¯ÇÑ °´Ã¼¿Í ÇÏÀÌ¶óÀÌÆ® Ä³¸¯ÅÍ°¡ ´Ù¸¦ °æ¿ì
-            //Å¬¸¯ÇÑ Ä³¸¯ÅÍ¸¦ °­Á¶ÇÏ°í ±âÁ¸ Ä³¸¯ÅÍ¸¦ ¿ø»óÅÂ·Î º¹±¸½ÃÅµ´Ï´Ù.
-            Image highlightedCharIMG;   //ÇöÀç °­Á¶µÈ Ä³¸¯ÅÍ ÀÌ¹ÌÁö º¯¼öµé
+            Image highlightedCharIMG;   //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             highlightedCharIMG = highlightedChar.GetComponent<Image>();
 
             getObjIMG.color = Color.yellow;
@@ -156,8 +154,8 @@ public class CharacterManager: MonoBehaviour
         }
         else
         {
-            //¿¹¿ÜÃ³¸®
-            Debug.LogError("Ä³¸¯ÅÍ °­Á¶ ÇÔ¼ö ¿À·ù");
+            //ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+            Debug.LogError("Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
 
     }

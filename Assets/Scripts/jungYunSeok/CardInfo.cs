@@ -6,7 +6,6 @@ using UnityEngine;
 public class CardInfo : ScriptableObject
 {
     public bool isSupporterCard;
-
     public int cardNumber;
     public string cardName;
     public int damage; 
@@ -14,5 +13,5 @@ public class CardInfo : ScriptableObject
     public string Card_Detail;
     //Damage_Range;
 
-    //»ç¿ë½Ã Àû¿ëµÇ´Â ½ºÅ³ ÇÔ¼ö
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Å³ ï¿½Ô¼ï¿½
 }
