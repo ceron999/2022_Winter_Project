@@ -436,15 +436,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 449595549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0656ba4c30c2b8745ba8f369a49a1b10, type: 3}
+  m_Script: {fileID: 11500000, guid: b857e0729730f4545b8b590fcae3bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_id: 2
-  character_name: "\uC6D4\uD654 \uACF5\uC8FC"
-  health: 20
-  speed: 20
-  characteristic: "\uB098"
-  character_detail: "\uB098\uB098"
+  isStriker: 0
+  isSupporter: 0
+  Character_ID: 0
+  Character_Name: 
+  Health: 0
+  Speed: 0
+  Characteristic: 
+  Character_Detail: 
 --- !u!1 &463116044
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,15 +808,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 769947132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0656ba4c30c2b8745ba8f369a49a1b10, type: 3}
+  m_Script: {fileID: 11500000, guid: b857e0729730f4545b8b590fcae3bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_id: 1
-  character_name: "\uAE38\uBC84\uD2B8"
-  health: 10
-  speed: 10
-  characteristic: "\uAC00"
-  character_detail: "\uAC00\uAC00"
+  isStriker: 0
+  isSupporter: 0
+  Character_ID: 0
+  Character_Name: 
+  Health: 0
+  Speed: 0
+  Characteristic: 
+  Character_Detail: 
 --- !u!114 &769947135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1144721831}
-  - component: {fileID: 1144721833}
+  - component: {fileID: 1144721832}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -1276,7 +1280,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1144721833
+--- !u!114 &1144721832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,14 +1289,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1144721830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5d9df06f8733f4b841a7051783e518, type: 3}
+  m_Script: {fileID: 11500000, guid: 97a7f50c7a820454dae5e7c8169b4911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2088753264}
   charList:
   - {fileID: 769947132}
   - {fileID: 449595549}
   - {fileID: 1938919911}
-  getCamera: {fileID: 519420031}
+  canvas: {fileID: 1780384862}
   charDetailText: {fileID: 1707732815}
   characteristicText: {fileID: 922372755}
 --- !u!1 &1153911901
@@ -1934,7 +1939,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1280, y: 720}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2078,15 +2083,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1938919911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0656ba4c30c2b8745ba8f369a49a1b10, type: 3}
+  m_Script: {fileID: 11500000, guid: b857e0729730f4545b8b590fcae3bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_id: 3
-  character_name: "\uD328\uD2B8\uB9AD"
-  health: 30
-  speed: 30
-  characteristic: "\uB2E4"
-  character_detail: "\uB2E4\uB2E4"
+  isStriker: 0
+  isSupporter: 0
+  Character_ID: 0
+  Character_Name: 
+  Health: 0
+  Speed: 0
+  Characteristic: 
+  Character_Detail: 
 --- !u!1 &1943638634
 GameObject:
   m_ObjectHideFlags: 0

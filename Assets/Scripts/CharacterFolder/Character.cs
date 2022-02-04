@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "CharacterInfo", menuName ="CharacterFolder/ACharacterInfo")]
-public class CharacterInfo: ScriptableObject
+public class Character : MonoBehaviour
 {
+    // 캐릭터 데이터
     public bool isStriker;
     public bool isSupporter;
 
@@ -15,4 +14,6 @@ public class CharacterInfo: ScriptableObject
     public int Speed;
     public string Characteristic;
     public string Character_Detail;
+    //카드 데이터
+
 }
