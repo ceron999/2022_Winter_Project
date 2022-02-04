@@ -65,6 +65,7 @@ public class CharacterManager: MonoBehaviour
         GameObject clickCard = results[0].gameObject;
         if (clickCard.CompareTag("CharCard"))
         {
+            Debug.Log(clickCard);
             //ȭ�鿡 ĳ�� ���� ���
             PrintCharText(clickCard);
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CCharacterInfo
   m_EditorClassIdentifier: 
   isStriker: 0
-  isSupporter: 0
+  isSupporter: 1
   Character_ID: 2
   Character_Name: "\uD328\uD2B8\uB9AD"
   Health: 100
