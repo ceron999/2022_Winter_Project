@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CardInfo
+public class CardInfo : MonoBehaviour
 {
     public bool isSupporterCard;
     public int cardNumber;
