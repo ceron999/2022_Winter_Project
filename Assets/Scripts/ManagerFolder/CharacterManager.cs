@@ -12,7 +12,7 @@ public class CharacterManager : MonoBehaviour
     //캐릭터들 스크립트를 가져올 수 있는 obj List
     public List<GameObject> charList = new List<GameObject>();
     public GameObject StrikerCharacter;     //현재 스트라이커로 지정된 오브젝트입니다.
-    GameObject highlightedChar = null;    //현재 강조된 캐릭터 obj를 담습니다.
+    public GameObject highlightedChar = null;    //현재 강조된 캐릭터 obj를 담습니다.
 
     //UI클릭을 위한 재료들
     [SerializeField] GameObject canvas;
@@ -29,6 +29,12 @@ public class CharacterManager : MonoBehaviour
         charManager = this;
         gRay = canvas.GetComponent<GraphicRaycaster>();
         eventSystem = GetComponent<EventSystem>();
+    }
+
+    private void Start()
+    {
+        GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
+        strikertext.GetComponent<Text>().text = "Striker";
     }
 
     private void Update()
@@ -113,8 +119,17 @@ public class CharacterManager : MonoBehaviour
     void PrintCharText(GameObject getObj)
     {
         Character getObjInfo = getObj.GetComponent<Character>();
-        charDetailText.text = getObjInfo.Character_Detail;
-        characteristicText.text = getObjInfo.Characteristic;
+
+        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
+
+        if (!highlightedChar)
+        {
+            characteristicText.text = getObjInfo.Characteristic;
+        }
+        else
+        {
+            characteristicText.text = null;
+        }
     }
 
     //click함수를 통해 받은 캐릭터를 강조합니다.
@@ -124,11 +139,14 @@ public class CharacterManager : MonoBehaviour
         Image getObjIMG = getObj.GetComponent<Image>();
 
         //선택한 이미지의 색을 강조하거나 취소합니다.
+        /*
         if (getObjIMG.color != Color.yellow)
             getObjIMG.color = Color.yellow;
         else
             getObjIMG.color = new Color(143f / 255f, 170f / 255f, 220f / 255f);
+        */
 
+        Vector3 getposition = getObj.transform.position;
 
         if (!highlightedChar)
         {
@@ -152,10 +170,47 @@ public class CharacterManager : MonoBehaviour
             Image highlightedCharIMG;   //현재 강조된 캐릭터 이미지 변수들
             highlightedCharIMG = highlightedChar.GetComponent<Image>();
 
-            getObjIMG.color = Color.yellow;
+            //getObjIMG.color = Color.yellow;
             highlightedCharIMG.color = new Color(143f / 255f, 170f / 255f, 220f / 255f);
 
-            highlightedChar = getObj;
+            //클릭한 객체가 스트라이커인 경우
+            if(getObj==StrikerCharacter)
+            {
+                StrikerCharacter = highlightedChar;
+
+                StrikerCharacter.GetComponent<Character>().isStriker = true;
+                StrikerCharacter.GetComponent<Character>().isSupporter = false;
+                StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
+
+                getObj.GetComponent<Character>().isStriker = false;
+                getObj.GetComponent<Character>().isSupporter = true;
+                getObj.transform.Find("RoleText").GetComponent<Text>().text = "Supporter";
+            }
+
+            //하이라이트 캐릭터가 스트라이커인 경우
+            else if(highlightedChar==StrikerCharacter)
+            {
+                StrikerCharacter = getObj;
+
+                StrikerCharacter.GetComponent<Character>().isStriker = true;
+                StrikerCharacter.GetComponent<Character>().isSupporter = false;
+                StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
+
+                highlightedChar.GetComponent<Character>().isStriker = false;
+                highlightedChar.GetComponent<Character>().isSupporter = true;
+                highlightedChar.transform.Find("RoleText").GetComponent<Text>().text = "Supporter";
+
+            }
+            
+            //위치 바꾸기
+            getObj.transform.position = highlightedChar.transform.position;
+            highlightedChar.transform.position = getposition;
+
+            //위치 바뀐 후의 스트라이커 캐릭터 특성 설명
+            charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
+
+            //highlightedChar = getObj;
+            highlightedChar = null;
         }
         else
         {
