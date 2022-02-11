@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 7524049080501658529}
   - component: {fileID: 7524049080501658534}
   - component: {fileID: 1870631258600005248}
-  - component: {fileID: 7524049080501658531}
   m_Layer: 5
   m_Name: PatrickAttackBTN
   m_TagString: Untagged
@@ -356,7 +355,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7524049080501658529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1870631258600005248}
+        m_TargetAssemblyTypeName: CardInfo, Assembly-CSharp
+        m_MethodName: SelectCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1870631258600005248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,18 +386,12 @@ MonoBehaviour:
   damage: 0
   cardCooldown: 0
   cardDetail: 
---- !u!114 &7524049080501658531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7524049080501658532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb167c5255d09648be5052cbf6596a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  cardMgr: {fileID: 0}
+  isSelected: 0
+  cardObj: {fileID: 7524049080501658532}
+  cardOrder: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
+  cardOrderImg: {fileID: 0}
+  cardOrderSpriter: {fileID: 0}
 --- !u!1 &7524049080538202566
 GameObject:
   m_ObjectHideFlags: 0

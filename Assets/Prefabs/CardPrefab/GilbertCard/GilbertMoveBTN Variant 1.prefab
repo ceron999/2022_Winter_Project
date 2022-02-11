@@ -93,7 +93,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080379661253019307, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
       propertyPath: m_Name
-      value: GilbertMoveBTN
+      value: GilbertMoveBTN Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3181883253543922509}
+    - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CardInfo, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412190407836568375, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: cardObj
+      value: 
+      objectReference: {fileID: 897360303129159377}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+--- !u!1 &897360303129159377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5080379661253019307, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+  m_PrefabInstance: {fileID: 5401278383115460730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3181883253543922509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7412190407836568375, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+  m_PrefabInstance: {fileID: 5401278383115460730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897360303129159377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b3bb29d946629418d72887e70aff17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
