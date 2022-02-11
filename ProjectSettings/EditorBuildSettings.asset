@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectStriker.unity
     guid: 7d6a7b2170d990943be8f01780234a73
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/CardBattleScene.unity
+    guid: 18b3a68707cb6454092e8c0e2479d2bd
   m_configObjects: {}

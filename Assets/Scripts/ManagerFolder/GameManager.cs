@@ -10,7 +10,15 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
     void Awake()
     {
-        gameManager = this;
+        if (gameManager == null)
+        {
+            gameManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

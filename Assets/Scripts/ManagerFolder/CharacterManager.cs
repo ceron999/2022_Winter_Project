@@ -26,9 +26,17 @@ public class CharacterManager : MonoBehaviour
 
     private void Awake()
     {
-        charManager = this;
-        gRay = canvas.GetComponent<GraphicRaycaster>();
-        eventSystem = GetComponent<EventSystem>();
+        if (charManager == null)
+        {
+            charManager = this;
+            gRay = canvas.GetComponent<GraphicRaycaster>();
+            eventSystem = GetComponent<EventSystem>();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

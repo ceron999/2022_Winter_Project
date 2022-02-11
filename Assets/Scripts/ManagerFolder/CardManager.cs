@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    [SerializeField] tempCardData cardData;
+    [SerializeField] CardInfo cardData;
     public List<GameObject> cardQueue;
     public static CardManager cardManager;
     public Sprite[] sprites;
@@ -12,8 +12,16 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
-        cardManager = this;
-        sprites = Resources.LoadAll<Sprite>("CardOrder"); //Resources 폴더의 Sprites/Cardorder 의 이미지 불러서 배열에 저장.
+        if (cardManager == null)
+        {
+            cardManager = this;
+            sprites = Resources.LoadAll<Sprite>("CardOrder"); //Resources 폴더의 Sprites/Cardorder 의 이미지 불러서 배열에 저장.
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ChangeOrderImg() // 모든 큐에 대해 이미지 다시 불러옴.
