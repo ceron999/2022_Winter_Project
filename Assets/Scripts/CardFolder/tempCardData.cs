@@ -1,9 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tempCardData : MonoBehaviour
 {
-    //´ëÃæ Àû´çÈ÷ Ä«µå µ¥ÀÌÅÍ¸¦ ´ã°í ÀÖ´Ù°í »ı°¢ÇÏ½Ã¸é ÆíÇÒ µí ½Í½À´Ï´Ù.
-    //±¸Ã¼ÀûÀÎ Ä«µå ÇÁ¸®ÆÕÀÌ ³ª¿À¸é ±× ½ºÅ©¸³Æ®·Î ´ëÃ¼ÇÒ ¿¹Á¤ÀÔ´Ï´Ù.
+   [SerializeField] CardManager cardMgr;
+    public bool isSelected = false;
+    public int cardNo;
+    public GameObject cardOrder;
+    public GameObject cardOrderImg;
+    public SpriteRenderer cardOrderSpriteR;
+    List<int> order;
+    private void Awake()
+    {
+        order = cardMgr.cardQueue;
+
+        cardOrderImg = Instantiate(cardOrder, transform); // ì¹´ë“œ ì˜¤ë¥¸ìª½ ìƒë‹¨ì— image ìƒì„± í›„ ì•ˆë³´ì´ê²Œ í•¨.
+        Vector2 position = new Vector2(60, 60);
+        cardOrderImg.transform.localPosition = position;
+        cardOrderImg.SetActive(false); 
+        cardOrderSpriteR = cardOrderImg.GetComponent<SpriteRenderer>();
+    }
+    void SelectCard()
+    {
+        if(isSelected)
+        {
+            order.Remove(cardNo); //í•´ë‹¹ ì¹´ë“œì˜ ë²ˆí˜¸ íì—ì„œ ì‚­ì œ
+            cardOrderImg.SetActive(false); // ì´ë¯¸ì§€ ì—†ì•°.
+            cardMgr.ChangeOrderImg();
+        }
+        else
+        {
+            if(order.Count > 3) return; // ì¹´ë“œê°€ ì„¸ ê°œ ì„ íƒ ëœ ê²½ìš° ë™ì‘í•˜ì§€ ì•ŠìŒ.
+            cardOrderSpriteR.sprite = cardMgr.sprites[order.Count]; // íì˜ ë§ˆì§€ë§‰ ì¸ë±ìŠ¤ ë²ˆí˜¸ = ì¹´ë“œ ë²ˆí˜¸. í•´ë‹¹ ë²ˆí˜¸ì˜ ì´ë¯¸ì§€ ë¶ˆëŸ¬ì˜´.
+            cardOrderImg.SetActive(true);// ì´ë¯¸ì§€ ë‚˜íƒ€ë‚˜ê²Œ í•¨.
+            order.Add(cardNo); // í•´ë‹¹ ì¹´ë“œ ë²ˆí˜¸ íì— ì‚½ì…
+        }
+    }
+
+    public void ReOrder()
+    {
+        cardOrderSpriteR.sprite = cardMgr.sprites[order.IndexOf(cardNo)]; // íì—ì„œ ìê¸° ì¸ë±ìŠ¤ ë²ˆí˜¸ì˜ ì´ë¯¸ì§€ë¡œ ë³€ê²½.
+    }
 }

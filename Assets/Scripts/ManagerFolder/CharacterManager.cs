@@ -103,6 +103,7 @@ public class CharacterManager : MonoBehaviour
             {
                 //화면에 캐릭 정보 출력
                 PrintCharText(clickCard);
+                
 
                 //클릭한 캐릭터 강조
                 HighlightCharacter(clickCard);
