@@ -5,42 +5,5 @@ using UnityEngine.UI;
 
 public class tempCardData : MonoBehaviour
 {
-   [SerializeField] CardManager cardMgr;
-    public bool isSelected = false;
-    public int cardNo;
-    public GameObject cardOrder;
-    public GameObject cardOrderImg;
-    public SpriteRenderer cardOrderSpriteR;
-    List<int> order;
-    private void Awake()
-    {
-        order = cardMgr.cardQueue;
-
-        cardOrderImg = Instantiate(cardOrder, transform); // 카드 오른쪽 상단에 image 생성 후 안보이게 함.
-        Vector2 position = new Vector2(60, 60);
-        cardOrderImg.transform.localPosition = position;
-        cardOrderImg.SetActive(false); 
-        cardOrderSpriteR = cardOrderImg.GetComponent<SpriteRenderer>();
-    }
-    void SelectCard()
-    {
-        if(isSelected)
-        {
-            order.Remove(cardNo); //해당 카드의 번호 큐에서 삭제
-            cardOrderImg.SetActive(false); // 이미지 없앰.
-            cardMgr.ChangeOrderImg();
-        }
-        else
-        {
-            if(order.Count > 3) return; // 카드가 세 개 선택 된 경우 동작하지 않음.
-            cardOrderSpriteR.sprite = cardMgr.sprites[order.Count]; // 큐의 마지막 인덱스 번호 = 카드 번호. 해당 번호의 이미지 불러옴.
-            cardOrderImg.SetActive(true);// 이미지 나타나게 함.
-            order.Add(cardNo); // 해당 카드 번호 큐에 삽입
-        }
-    }
-
-    public void ReOrder()
-    {
-        cardOrderSpriteR.sprite = cardMgr.sprites[order.IndexOf(cardNo)]; // 큐에서 자기 인덱스 번호의 이미지로 변경.
-    }
+   
 }
