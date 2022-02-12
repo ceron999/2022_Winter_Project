@@ -206,11 +206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &135360345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
-  m_PrefabInstance: {fileID: 450562787528061142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &135360346 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 450562787661307788, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
@@ -366,9 +361,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 338716081}
   charList:
-  - {fileID: 796791000}
-  - {fileID: 135360345}
-  - {fileID: 1826637981}
+  - {fileID: 7191452305528022396, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+  - {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+  - {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+  strikerCharPrefab: {fileID: 0}
   StrikerCharacter: {fileID: 796791000}
   highlightedChar: {fileID: 0}
   canvas: {fileID: 647223429}
@@ -1344,11 +1340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0883a73aa5ee0346b05702b30e7eca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1826637981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
-  m_PrefabInstance: {fileID: 2268005964528281163}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1826637982 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2268005966082256597, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}

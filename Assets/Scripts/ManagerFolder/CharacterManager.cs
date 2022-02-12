@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
 
     //캐릭터들 스크립트를 가져올 수 있는 obj List
     public List<GameObject> charList = new List<GameObject>();
+    public GameObject strikerCharPrefab;
     public GameObject StrikerCharacter;     //현재 스트라이커로 지정된 오브젝트입니다.
     public GameObject highlightedChar = null;    //현재 강조된 캐릭터 obj를 담습니다.
 
@@ -85,6 +86,8 @@ public class CharacterManager : MonoBehaviour
 
             //클릭한 캐릭터 강조
             HighlightCharacter(clickCard);
+
+            
         }
     }
 
@@ -111,10 +114,10 @@ public class CharacterManager : MonoBehaviour
             {
                 //화면에 캐릭 정보 출력
                 PrintCharText(clickCard);
-                
 
                 //클릭한 캐릭터 강조
                 HighlightCharacter(clickCard);
+                
             }
         }
     }
@@ -146,14 +149,6 @@ public class CharacterManager : MonoBehaviour
     {
         //클릭한 obj의 이미지 변수들을 받아옵니다.
         Image getObjIMG = getObj.GetComponent<Image>();
-
-        //선택한 이미지의 색을 강조하거나 취소합니다.
-        /*
-        if (getObjIMG.color != Color.yellow)
-            getObjIMG.color = Color.yellow;
-        else
-            getObjIMG.color = new Color(143f / 255f, 170f / 255f, 220f / 255f);
-        */
 
         Vector3 getposition = getObj.transform.position;
 
@@ -218,6 +213,9 @@ public class CharacterManager : MonoBehaviour
             //위치 바뀐 후의 스트라이커 캐릭터 특성 설명
             charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
 
+            //스트라이커 프리팹 저장하는 함수입니다.
+            SaveStriker();
+
             //highlightedChar = getObj;
             highlightedChar = null;
         }
@@ -227,5 +225,20 @@ public class CharacterManager : MonoBehaviour
             Debug.LogError("캐릭터 강조 함수 오류");
         }
 
+    }
+
+    void SaveStriker()
+    {
+        if(StrikerCharacter != null)
+        {
+            for (int i =0; i<charList.Count; i++)
+            {
+                if (StrikerCharacter.name == charList[i].name)
+                {
+                    strikerCharPrefab = charList[i];
+                    break;
+                }
+            }
+        }
     }
 }

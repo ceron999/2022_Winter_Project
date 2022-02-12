@@ -14,7 +14,7 @@ public class CardInfo : MonoBehaviour
     public string cardDetail;
     //Damage_Range;
 
-    [SerializeField] CardManager cardMgr;
+    public CardManager cardMgr;
     public bool isSelected = false;
     public GameObject cardObj;
     public GameObject cardOrder;
