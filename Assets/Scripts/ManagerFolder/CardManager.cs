@@ -36,7 +36,6 @@ public class CardManager : MonoBehaviour
     {
         for (int i = 0; i < cardQueue.Count; i++)
         {
-            //막힘... Striker(Support)SkillBTN+cardQueue[i].Reorder() 이런식으로 해야되는데... 어케함?
             cardQueue[i].GetComponent<CardInfo>().ReOrder();
         }
     }
@@ -48,7 +47,6 @@ public class CardManager : MonoBehaviour
         for (int i=0; i<gilbertCards.Count; i++)
         {
             cards = Instantiate(gilbertCards[i], transform.position, Quaternion.identity);
-            cards.GetComponent<CardInfo>().cardMgr = cardManager;
             cards.transform.parent = scrollContent.transform;
 
             if(i<4)

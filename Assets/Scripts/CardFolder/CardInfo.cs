@@ -24,7 +24,14 @@ public class CardInfo : MonoBehaviour
 
     private void Awake()
     {
-        order = cardMgr.cardQueue;
+        if(cardMgr != null)
+            order = cardMgr.cardQueue;
+        else
+        {
+            GameObject temp = GameObject.Find("CardManager");
+            cardMgr = temp.GetComponent<CardManager>();
+            order = cardMgr.cardQueue;
+        }
 
         cardOrderImg = Instantiate(cardOrder, transform); // 카드 오른쪽 상단에 image 생성 후 안보이게 함.
         Vector2 position = new Vector2(60, 60);
