@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 3181883253543922509}
     - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCard
+      value: SelectMoveCard
       objectReference: {fileID: 0}
     - target: {fileID: 5080379661253019309, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

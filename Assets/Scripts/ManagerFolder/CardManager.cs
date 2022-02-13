@@ -15,6 +15,8 @@ public class CardManager : MonoBehaviour
     public GameObject scrollContent;        //카드를 뿌릴 스크롤 바의 Content 객체
     public List<GameObject> gilbertCards;   //instantiate하기 전용 프리팹 리스트
 
+    public bool isBTNOpened = false;        //CardInfo, CardBTN에서 이동카드를 추가하는 버튼이 열려있는지 확인하는 변수
+
     void Awake()
     {
         //매니저가 존재하지 않으면 현재 오브젝트를 싱글톤으로 생성합니다.

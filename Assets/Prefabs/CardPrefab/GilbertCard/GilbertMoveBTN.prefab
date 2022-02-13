@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7412190407836568375}
         m_TargetAssemblyTypeName: CardInfo, Assembly-CSharp
-        m_MethodName: SelectCard
+        m_MethodName: SelectMoveCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -154,11 +154,20 @@ MonoBehaviour:
   cardCooldown: 0
   cardDetail: 
   cardMgr: {fileID: 0}
+  isMoveCard: 1
   isSelected: 0
   cardObj: {fileID: 5080379661253019307}
   cardOrder: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
   cardOrderImg: {fileID: 0}
+  cardOrderImg2: {fileID: 0}
+  cardOrderImg3: {fileID: 0}
+  isBTNOpened: 0
+  cardPlusBTNPrefab: {fileID: 6581718344256803049, guid: df394cc97b0ad9b4cb69c9363f5629a4, type: 3}
+  cardMinusBTNPrefab: {fileID: 7227295881708846274, guid: 6f687cb195aa37145b714b5583ebe30e, type: 3}
+  plusCardBTN: {fileID: 0}
+  minusCardBTN: {fileID: 0}
   cardOrderSpriter: {fileID: 0}
+  order: []
 --- !u!1 &5080379661284471111
 GameObject:
   m_ObjectHideFlags: 0

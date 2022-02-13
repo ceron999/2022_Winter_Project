@@ -1297,7 +1297,9 @@ MonoBehaviour:
   - {fileID: 769947132}
   - {fileID: 449595549}
   - {fileID: 1938919911}
+  strikerCharPrefab: {fileID: 0}
   StrikerCharacter: {fileID: 769947132}
+  highlightedChar: {fileID: 0}
   canvas: {fileID: 1780384862}
   charDetailText: {fileID: 1707732815}
   characteristicText: {fileID: 922372755}

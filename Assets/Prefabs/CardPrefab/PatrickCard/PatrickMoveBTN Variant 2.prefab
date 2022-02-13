@@ -11,13 +11,25 @@ PrefabInstance:
       propertyPath: cardObj
       value: 
       objectReference: {fileID: 1636112096350798923}
+    - target: {fileID: -5159950097581023842, guid: aec439d83039b1447a0e004e85368223, type: 3}
+      propertyPath: isMoveCard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5159950097581023842, guid: aec439d83039b1447a0e004e85368223, type: 3}
+      propertyPath: cardPlusBTNPrefab
+      value: 
+      objectReference: {fileID: 6581718344256803049, guid: df394cc97b0ad9b4cb69c9363f5629a4, type: 3}
+    - target: {fileID: -5159950097581023842, guid: aec439d83039b1447a0e004e85368223, type: 3}
+      propertyPath: cardMinusBTNPrefab
+      value: 
+      objectReference: {fileID: 7227295881708846274, guid: 6f687cb195aa37145b714b5583ebe30e, type: 3}
     - target: {fileID: 7189857365021653298, guid: aec439d83039b1447a0e004e85368223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5554925020193628385}
     - target: {fileID: 7189857365021653298, guid: aec439d83039b1447a0e004e85368223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCard
+      value: SelectMoveCard
       objectReference: {fileID: 0}
     - target: {fileID: 7189857365021653298, guid: aec439d83039b1447a0e004e85368223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
