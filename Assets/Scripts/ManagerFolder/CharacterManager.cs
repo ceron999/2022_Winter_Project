@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour //, IDragHandler
 {
     static public CharacterManager charManager;
     public GameManager gameManager;
@@ -25,6 +25,9 @@ public class CharacterManager : MonoBehaviour
     public Text charDetailText;
     public Text characteristicText;
 
+    //Transform StrikerRole;
+    //Transform highlightRole;
+
     private void Awake()
     {
         if (charManager == null)
@@ -42,6 +45,8 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
+        //StrikerRole = StrikerCharacter.transform.Find("RoleText");
+        //highlightRole = highlightedChar.transform.Find("RoleText");
         GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
         strikertext.GetComponent<Text>().text = "Striker";
     }
@@ -174,7 +179,6 @@ public class CharacterManager : MonoBehaviour
             Image highlightedCharIMG;   //현재 강조된 캐릭터 이미지 변수들
             highlightedCharIMG = highlightedChar.GetComponent<Image>();
 
-            //getObjIMG.color = Color.yellow;
             highlightedCharIMG.color = new Color(143f / 255f, 170f / 255f, 220f / 255f);
 
             //클릭한 객체가 스트라이커인 경우
@@ -185,6 +189,7 @@ public class CharacterManager : MonoBehaviour
                 StrikerCharacter.GetComponent<Character>().isStriker = true;
                 StrikerCharacter.GetComponent<Character>().isSupporter = false;
                 StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
+                //StrikerRole.GetComponent<Text>().text = "Striker";
 
                 getObj.GetComponent<Character>().isStriker = false;
                 getObj.GetComponent<Character>().isSupporter = true;
@@ -199,10 +204,12 @@ public class CharacterManager : MonoBehaviour
                 StrikerCharacter.GetComponent<Character>().isStriker = true;
                 StrikerCharacter.GetComponent<Character>().isSupporter = false;
                 StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
+                //StrikerRole.GetComponent<Text>().text = "Striker";
 
                 highlightedChar.GetComponent<Character>().isStriker = false;
                 highlightedChar.GetComponent<Character>().isSupporter = true;
                 highlightedChar.transform.Find("RoleText").GetComponent<Text>().text = "Supporter";
+                //highlightRole.GetComponent<Text>().text = "Supporter";
 
             }
             
@@ -241,4 +248,13 @@ public class CharacterManager : MonoBehaviour
             }
         }
     }
+
+    /*
+    float distance = 10.0f;
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x,Input.mousePosition.y, distance);
+        transform.position = mousePosition;
+    }
+    */
 }
