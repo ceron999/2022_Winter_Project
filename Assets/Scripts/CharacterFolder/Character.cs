@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // дЁ╦╞ем ╣╔юлем
+    //Ц└╧Ц┘┤
+    // дЁО©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫
     public bool isStriker;
     public bool isSupporter;
 
@@ -14,6 +15,6 @@ public class Character : MonoBehaviour
     public int Speed;
     public string Characteristic;
     public string Character_Detail;
-    //д╚╣Е ╣╔юлем
+    //д╚О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫
 
 }

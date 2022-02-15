@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneMoveBTN : MonoBehaviour
 {
-    //ÀÓÀÇÀûÀ¸·Î ¾ÀÀ» ÀÌµ¿ÇÏ°Ô ¸¸µé±â À§ÇØ ¸¸µç ÄÚµåµé ÀÔ´Ï´Ù.
-    //³ªÁß¿¡ ¼öÁ¤ÇÒ ¿¹Á¤!
+    //ì‹œë§ˆìŠ¤
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Ô´Ï´ï¿½.
+    //ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
 
-    //1. MainMenu BTN ÇÔ¼öµé
+    //1. MainMenu BTN ï¿½Ô¼ï¿½ï¿½ï¿½
     public void ClickStartFirstBTN()
     {
-        //±¸ÇöÀÌ ´ú µÈ ½Ã³ª¸®¿À ¾À ´ë½Å Ä³¸¯ÅÍ ¼±ÅÃ ¾ÀÀ¸·Î ÀÌµ¿
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         SceneManager.LoadScene("SelectStriker");
     }
 
@@ -25,19 +26,19 @@ public class SceneMoveBTN : MonoBehaviour
         Application.Quit();
     }
 
-    //2. BattleHistory BTN ÇÔ¼öµé
+    //2. BattleHistory BTN ï¿½Ô¼ï¿½ï¿½ï¿½
     public void ClickExitBTN2MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-    //3. SelectStriker BTN ÇÔ¼öµé
+    //3. SelectStriker BTN ï¿½Ô¼ï¿½ï¿½ï¿½
     public void ClickSelectCardBTN()
     {
         SceneManager.LoadScene("SelectCard");
     }
 
-    //4. SelectCard BTN ÇÔ¼öµé
+    //4. SelectCard BTN ï¿½Ô¼ï¿½ï¿½ï¿½
     public void ClickCardBatteBTN()
     {
         SceneManager.LoadScene("CardBattleScene");
