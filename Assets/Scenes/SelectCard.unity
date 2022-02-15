@@ -863,7 +863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000028645056}
+  m_AnchoredPosition: {x: 0, y: 0.00002368958}
   m_SizeDelta: {x: 1173, y: 900}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &404710378 stripped
@@ -1899,6 +1899,33 @@ MonoBehaviour:
   - {fileID: 3099663591466020435, guid: 2889a8c41559b9d40a9c3f2c5269ada2, type: 3}
   - {fileID: 897360303129159377, guid: 0bb1d55a9c8a35c439dfe45d6b523242, type: 3}
   - {fileID: 6396969585380774913, guid: 13828f565db97fb4cbc017e78ffa9f45, type: 3}
+  walwhaCards:
+  - {fileID: 1790792018881668160, guid: 75d25f5f5fc27a1458cfbf5bb71ac4fd, type: 3}
+  - {fileID: 2090522457123280861, guid: aa65c587aaa169f49b7b090a66f90037, type: 3}
+  - {fileID: 1065846709990042792, guid: 9abaf4269fcf8c34fa15e99b2b8bd2d5, type: 3}
+  - {fileID: 6724123158449629760, guid: 315484ed7436bbd41945dce738282031, type: 3}
+  - {fileID: 8439876776718665184, guid: dfe69b0987294e440abacce73e74a65a, type: 3}
+  - {fileID: 5859091367403409762, guid: d4b35e62e6460fd4294bc93f237a1f8e, type: 3}
+  - {fileID: 7448040279971565537, guid: 167f1b849fdf72d46a5ec5dfcf79c515, type: 3}
+  - {fileID: 5043271450129767521, guid: 38dc1eb5b0f6a4740bff59c586b0335a, type: 3}
+  - {fileID: 2867229130033098335, guid: dbf474944e2b26e4495390b2f465ba67, type: 3}
+  - {fileID: 5636896811093338941, guid: 91fc02487ba53884c8008c079a920290, type: 3}
+  - {fileID: 9081959252246193942, guid: 00fc7cb2a48a31d4c94c5d6c6b5e4775, type: 3}
+  - {fileID: 8080422628776932387, guid: d33ef062cbb030546a64c87f4c2270fa, type: 3}
+  patrickCards:
+  - {fileID: 7524049080501658532, guid: 2b399c0454ee31a4e81ea3feab0706d3, type: 3}
+  - {fileID: 7939344569796936597, guid: 4207e59a04452ce45ad76a3ab2166c0f, type: 3}
+  - {fileID: 3939872355475323540, guid: cece8e73e2e82cc4da24690cb4f8d0e7, type: 3}
+  - {fileID: 220866569534964673, guid: b2e0b9e15228fc441889a5d3db01a3b6, type: 3}
+  - {fileID: 7265031529818521674, guid: 1b704a15bb4398642acb44d6e364da0e, type: 3}
+  - {fileID: 5471760736114671650, guid: 4356b546d19e27442869b1cf814620a3, type: 3}
+  - {fileID: 8641367596525992414, guid: f5bd3e50b154d4646926915e3ad4540e, type: 3}
+  - {fileID: 6745981688663562617, guid: 2a594c07408ff55409ee42c091cc055c, type: 3}
+  - {fileID: 7189857365021653300, guid: aec439d83039b1447a0e004e85368223, type: 3}
+  - {fileID: 3569516803663948175, guid: 8d1be696b7b8a3a4a8c44dd0d8bb6eaf, type: 3}
+  - {fileID: 3058953965571241155, guid: 9b0b5432694696c4aa060ea1af01cec0, type: 3}
+  - {fileID: 1636112096350798923, guid: 91d563417b8f2974994861e7ee05d066, type: 3}
+  isBTNOpened: 0
 --- !u!114 &838125723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5050314095548838560, guid: c2a0754e332cd0845b8d59ba6579eb10, type: 3}
@@ -4755,7 +4782,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1956534759}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999955
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

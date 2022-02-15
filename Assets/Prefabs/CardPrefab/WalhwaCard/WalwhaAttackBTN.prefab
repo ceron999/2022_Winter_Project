@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.07775002, b: 0.87871957, a: 1}
+  m_Color: {r: 0.07843135, g: 0.16368327, b: 0.98039216, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -387,11 +387,19 @@ MonoBehaviour:
   cardCooldown: 0
   cardDetail: 
   cardMgr: {fileID: 0}
+  isMoveCard: 0
   isSelected: 0
   cardObj: {fileID: 1790792018881668160}
   cardOrder: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
   cardOrderImg: {fileID: 0}
+  cardOrderImg2: {fileID: 0}
+  cardOrderImg3: {fileID: 0}
+  cardPlusBTNPrefab: {fileID: 0}
+  cardMinusBTNPrefab: {fileID: 0}
+  plusCardBTN: {fileID: 0}
+  minusCardBTN: {fileID: 0}
   cardOrderSpriter: {fileID: 0}
+  order: []
 --- !u!1 &1790792018981127714
 GameObject:
   m_ObjectHideFlags: 0

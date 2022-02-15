@@ -14,7 +14,8 @@ public class CardManager : MonoBehaviour
 
     public GameObject scrollContent;        //카드를 뿌릴 스크롤 바의 Content 객체
     public List<GameObject> gilbertCards;   //instantiate하기 전용 프리팹 리스트
-
+    public List<GameObject> walwhaCards;
+    public List<GameObject> patrickCards;
     public bool isBTNOpened = false;        //CardInfo, CardBTN에서 이동카드를 추가하는 버튼이 열려있는지 확인하는 변수
 
     void Awake()
@@ -45,18 +46,91 @@ public class CardManager : MonoBehaviour
     void InstantiageCards()
     {
         GameObject cards;
+        int striker = charManager.strikerCharPrefab.GetComponent<Character>().Character_ID;
         //스트라이커 카드 Instantiate
-        for (int i=0; i<gilbertCards.Count; i++)
+        if(striker == 0)
         {
-            cards = Instantiate(gilbertCards[i], transform.position, Quaternion.identity);
-            cards.transform.parent = scrollContent.transform;
+            for (int i=0; i<gilbertCards.Count; i++)
+            {
+                cards = Instantiate(gilbertCards[i], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
 
-            if(i<4)
-                cards.transform.localPosition = new Vector3(200 +(270 *i),-200,0);
-            else if(i>=4&&i<8)
-                cards.transform.localPosition = new Vector3(200 + (270 * (i-4)), -450, 0);
-            else
-                cards.transform.localPosition = new Vector3(200 + (270 * (i-8)), -700, 0);
+                if(i<4)
+                    cards.transform.localPosition = new Vector3(200 +(270 *i),-200,0);
+                else if(i>=4&&i<8)
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-4)), -450, 0);
+                else
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-8)), -700, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(walwhaCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1050, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(patrickCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1300, 0);
+            }
         }
+
+        if(striker == 1)
+        {
+            for (int i=0; i<walwhaCards.Count; i++)
+            {
+                cards = Instantiate(walwhaCards[i], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+
+                if(i<4)
+                    cards.transform.localPosition = new Vector3(200 +(270 *i),-200,0);
+                else if(i>=4&&i<8)
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-4)), -450, 0);
+                else
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-8)), -700, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(patrickCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1050, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(gilbertCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1300, 0);
+            }
+        }
+
+        if(striker == 2)
+        {
+            for (int i=0; i<patrickCards.Count; i++)
+            {
+                cards = Instantiate(patrickCards[i], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+
+                if(i<4)
+                    cards.transform.localPosition = new Vector3(200 +(270 *i),-200,0);
+                else if(i>=4&&i<8)
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-4)), -450, 0);
+                else
+                    cards.transform.localPosition = new Vector3(200 + (270 * (i-8)), -700, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(walwhaCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1050, 0);
+            }
+            for(int i=0; i<4; i++)
+            {
+                cards = Instantiate(gilbertCards[i+4], transform.position, Quaternion.identity);
+                cards.transform.parent = scrollContent.transform;
+                cards.transform.localPosition = new Vector3(200 +(270*i), -1300, 0);
+            }
+        }
+
     }
 }
