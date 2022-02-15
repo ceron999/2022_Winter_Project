@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterManager : MonoBehaviour //, IDragHandler
+public class CharacterManager : MonoBehaviour
 {
     static public CharacterManager charManager;
     public GameManager gameManager;
@@ -25,9 +25,6 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
     public Text charDetailText;
     public Text characteristicText;
 
-    //Transform StrikerRole;
-    //Transform highlightRole;
-
     private void Awake()
     {
         if (charManager == null)
@@ -45,8 +42,6 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
 
     private void Start()
     {
-        //StrikerRole = StrikerCharacter.transform.Find("RoleText");
-        //highlightRole = highlightedChar.transform.Find("RoleText");
         GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
         strikertext.GetComponent<Text>().text = "Striker";
     }
@@ -91,8 +86,6 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
 
             //클릭한 캐릭터 강조
             HighlightCharacter(clickCard);
-
-            
         }
     }
 
@@ -188,12 +181,11 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
 
                 StrikerCharacter.GetComponent<Character>().isStriker = true;
                 StrikerCharacter.GetComponent<Character>().isSupporter = false;
-                StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
-                //StrikerRole.GetComponent<Text>().text = "Striker";
+                StrikerCharacter.transform.GetChild(0).GetComponent<Text>().text = "Striker";
 
                 getObj.GetComponent<Character>().isStriker = false;
                 getObj.GetComponent<Character>().isSupporter = true;
-                getObj.transform.Find("RoleText").GetComponent<Text>().text = "Supporter";
+                getObj.transform.GetChild(0).GetComponent<Text>().text = "Supporter";
             }
 
             //하이라이트 캐릭터가 스트라이커인 경우
@@ -203,14 +195,11 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
 
                 StrikerCharacter.GetComponent<Character>().isStriker = true;
                 StrikerCharacter.GetComponent<Character>().isSupporter = false;
-                StrikerCharacter.transform.Find("RoleText").GetComponent<Text>().text = "Striker";
-                //StrikerRole.GetComponent<Text>().text = "Striker";
+                StrikerCharacter.transform.GetChild(0).GetComponent<Text>().text = "Striker";
 
                 highlightedChar.GetComponent<Character>().isStriker = false;
                 highlightedChar.GetComponent<Character>().isSupporter = true;
-                highlightedChar.transform.Find("RoleText").GetComponent<Text>().text = "Supporter";
-                //highlightRole.GetComponent<Text>().text = "Supporter";
-
+                highlightedChar.transform.GetChild(0).GetComponent<Text>().text = "Supporter";
             }
             
             //위치 바꾸기
@@ -223,7 +212,6 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
             //스트라이커 프리팹 저장하는 함수입니다.
             SaveStriker();
 
-            //highlightedChar = getObj;
             highlightedChar = null;
         }
         else
@@ -249,12 +237,4 @@ public class CharacterManager : MonoBehaviour //, IDragHandler
         }
     }
 
-    /*
-    float distance = 10.0f;
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x,Input.mousePosition.y, distance);
-        transform.position = mousePosition;
-    }
-    */
 }
