@@ -12,29 +12,30 @@ public class CardBTN : MonoBehaviour
         parentInfo = GetComponentInParent<CardInfo>();
     }
 
-    //+¹öÆ°À» ´©¸£¸é ÇØ´ç Ä«µåÀÇ ¼ø¼­ ÀÌ¹ÌÁö¸¦ Ãâ·ÂÇÏ°í Ä«µå Å¥¿¡ »ðÀÔÇÕ´Ï´Ù.
+//ìš”ë¡œì‹œê¾¸
+    //+ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ Ä«ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     public void PlusCard()
     {
-        // Å¥ÀÇ ¸¶Áö¸· ÀÎµ¦½º ¹øÈ£ = Ä«µå ¹øÈ£. ÇØ´ç ¹øÈ£ÀÇ ÀÌ¹ÌÁö ºÒ·¯¿È.
+        // Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½È£ = Ä«ï¿½ï¿½ ï¿½ï¿½È£. ï¿½Ø´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½.
         if (parentInfo.order.Count == 0 || parentInfo.cardOrderImg.activeSelf == false)
         {
             parentInfo.cardOrderImg.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg.SetActive(true);// ÀÌ¹ÌÁö ³ªÅ¸³ª°Ô ÇÔ.
-            parentInfo.order.Add(parentInfo.cardObj); // ÇØ´ç Ä«µå ¹øÈ£ Å¥¿¡ »ðÀÔ
+            parentInfo.cardOrderImg.SetActive(true);// ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+            parentInfo.order.Add(parentInfo.cardObj); // ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
         else if (parentInfo.order.Count == 1)
         {
             parentInfo.cardOrderImg2.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg2.SetActive(true);// ÀÌ¹ÌÁö ³ªÅ¸³ª°Ô ÇÔ.
-            parentInfo.order.Add(parentInfo.cardObj); // ÇØ´ç Ä«µå ¹øÈ£ Å¥¿¡ »ðÀÔ
+            parentInfo.cardOrderImg2.SetActive(true);// ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+            parentInfo.order.Add(parentInfo.cardObj); // ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
         else
         {
             parentInfo.cardOrderImg3.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg3.SetActive(true);// ÀÌ¹ÌÁö ³ªÅ¸³ª°Ô ÇÔ.
-            parentInfo.order.Add(parentInfo.cardObj); // ÇØ´ç Ä«µå ¹øÈ£ Å¥¿¡ »ðÀÔ
+            parentInfo.cardOrderImg3.SetActive(true);// ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+            parentInfo.order.Add(parentInfo.cardObj); // ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
         //parentInfo.isSelected = true;
 
@@ -43,20 +44,20 @@ public class CardBTN : MonoBehaviour
         parentInfo.cardMgr.isBTNOpened = false;
     }
 
-    //-¹öÆ°À» ´©¸£¸é ÇØ´ç Ä«µåÀÇ ¼ø¼­ ÀÌ¹ÌÁö¸¦ Á¦°ÅÇÏ°í »ç¿ë Ä«µå Å¥¿¡¼­ »èÁ¦ÇÕ´Ï´Ù.
+    //-ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ Å¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     public void MinusCard()
     {
-        GameObject currImg; //ÇöÀç Ä«µå¿¡¼­ ³ªÅ¸³ª´Â ¼ø¼­ ÀÌ¹ÌÁö¸¦ ÀúÀåÇÒ º¯¼öÀÔ´Ï´Ù.
-        int currIdx;        //Á¦°ÅÇÏ°í ½ÍÀº Ä«µå°¡ CardInfoÀÇ order ¸®½ºÆ®¿¡¼­ ¸î ¹øÂ° ÀÎµ¦½º¸¦ °¡Áø Ä«µåÀÎÁö ÀúÀåÇÒ º¯¼öÀÔ´Ï´Ù.
+        GameObject currImg; //ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+        int currIdx;        //ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å°¡ CardInfoï¿½ï¿½ order ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Â° ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 
         if (parentInfo.order.Count == 3)
         {
-            currImg = GetCurrImage();   //cardOrderImg,2,3 Áß Á¦°ÅÇÒ, Ä«µåÀÇ ¼ø¼­¸¦ ´ã°í ÀÖ´Â ¿ÀºêÁ§Æ®¸¦ Ã£¾Æ ´ã½À´Ï´Ù.
+            currImg = GetCurrImage();   //cardOrderImg,2,3 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //ÇØ´ç Ä«µåÀÇ ¹øÈ£ Å¥¿¡¼­ »èÁ¦
+            parentInfo.order.RemoveAt(currIdx); //ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if(IsImgOpenMore2())
-                currImg.SetActive(false); // ÀÌ¹ÌÁö ¾ø¾Ú.
+                currImg.SetActive(false); // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -67,9 +68,9 @@ public class CardBTN : MonoBehaviour
             currImg = GetCurrImage();
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //ÇØ´ç Ä«µåÀÇ ¹øÈ£ Å¥¿¡¼­ »èÁ¦
+            parentInfo.order.RemoveAt(currIdx); //ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (IsImgOpenMore2())
-                currImg.SetActive(false); // ÀÌ¹ÌÁö ¾ø¾Ú.
+                currImg.SetActive(false); // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -80,9 +81,9 @@ public class CardBTN : MonoBehaviour
             currImg = GetCurrImage();
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //ÇØ´ç Ä«µåÀÇ ¹øÈ£ Å¥¿¡¼­ »èÁ¦
+            parentInfo.order.RemoveAt(currIdx); //ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ Å¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (IsImgOpenMore2())
-                currImg.SetActive(false); // ÀÌ¹ÌÁö ¾ø¾Ú.
+                currImg.SetActive(false); // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -93,8 +94,8 @@ public class CardBTN : MonoBehaviour
         parentInfo.cardMgr.isBTNOpened = false;
     }
 
-    //Ä«µå ¼ø¼­ ÀÌ¹ÌÁö¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ CardInfo¿¡¼­ Ã£¾Æ ¹ÝÈ¯ÇÕ´Ï´Ù.
-    //¹ÝÈ¯ÇÒ ÀÌ¹ÌÁö ¿ÀºêÁ§Æ®´Â CardOrderImg, CardOrderImg2, CardOrderImg3 ÀÔ´Ï´Ù.
+    //Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ CardInfoï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
+    //ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ CardOrderImg, CardOrderImg2, CardOrderImg3 ï¿½Ô´Ï´ï¿½.
     GameObject GetCurrImage()
     {
         int imgIdx;
@@ -116,7 +117,7 @@ public class CardBTN : MonoBehaviour
         return null;
     }
 
-    //ÇöÀç »ç¿ë Ä«µå Å¥¿¡¼­ Å¬¸¯ÇÑ Ä«µå°¡ CardInfoÀÇ order¿¡¼­ ¸î ¹øÂ° ÀÎµ¦½º¸¦ °¡Áö´ÂÁö Ã£¾Æ ÇØ´ç ÀÎµ¦½º¸¦ Ãâ·ÂÇÕ´Ï´Ù.
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ Å¥ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å°¡ CardInfoï¿½ï¿½ orderï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Â° ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     //ex) 
     int GetCurrIdx()
     {

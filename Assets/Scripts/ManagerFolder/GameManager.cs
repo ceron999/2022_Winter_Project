@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     /*
-    ÇÔ¼ö¿¡ °üÇÑ ³»¿ëÀº ÁÖ¼®À¸·Î ²À!!!!!!!!!!!!!!!!!!!!!!! ½áÁÖ¼¼¿ä!!!!
+    ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½!!!!!!!!!!!!!!!!!!!!!!! ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!!!!
      */
+     //ì˜¤ë„¤ê°€ì´
     public static GameManager gameManager;
     void Awake()
     {
