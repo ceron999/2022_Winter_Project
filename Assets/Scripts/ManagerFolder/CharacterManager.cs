@@ -9,15 +9,22 @@ public class CharacterManager : MonoBehaviour
     static public CharacterManager charManager;
     public GameManager gameManager;
 
+    public enum CharacterName
+    {
+        Gilbert,Walhwa,Patrick
+    }
+
     //캐릭터들 스크립트를 가져올 수 있는 obj List
     public List<GameObject> charList = new List<GameObject>();
+
+    public CharacterName strikerName;
     public GameObject strikerCharPrefab;
     public GameObject StrikerCharacter;     //현재 스트라이커로 지정된 오브젝트입니다.
     public GameObject highlightedChar = null;    //현재 강조된 캐릭터 obj를 담습니다.
 
     //UI클릭을 위한 재료들
     [SerializeField] GameObject canvas;
-    GraphicRaycaster gRay;
+    public GraphicRaycaster gRay;
     PointerEventData pointerEventData;
     EventSystem eventSystem;
 
@@ -48,85 +55,24 @@ public class CharacterManager : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR_WIN
-        if (Input.GetMouseButtonDown(0))
-        {
-            Click2Mouse();
-        }
-#elif UNITY_ANDROID
-        if(Input.touchCount>0)
-        {
-            Click2Android();
-        }
-#endif
 
     }
 
     /// <summary>
     /// pc버전
-    /// 마우스로 해당 캐릭터를 클릭할 경우 해당 캐릭터가 강조되고 관련 데이터를 화면에 출력합니다.
     /// </summary>
-    void Click2Mouse()
-    {
-        //이벤트 시스템을 pointerEventData에 집어넣음
-        pointerEventData = new PointerEventData(eventSystem);
-        //마우스포지션을 pointerEventData 포지션에 집어넣음
-        pointerEventData.position = Input.mousePosition;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-
-        gRay.Raycast(pointerEventData, results);
-
-
-        GameObject clickCard = results[0].gameObject;
-        if (clickCard.CompareTag("CharCard"))
-        {
-            //화면에 캐릭 정보 출력
-            PrintCharText(clickCard);
-
-            //클릭한 캐릭터 강조
-            HighlightCharacter(clickCard);
-        }
-    }
-
 
     /// <summary>
     /// 안드로이드 버전
-    /// 마우스로 해당 캐릭터를 클릭할 경우 해당 캐릭터가 강조되고 관련 데이터를 화면에 출력합니다.
     /// </summary>
-    void Click2Android()
-    {
-        //이벤트 시스템을 pointerEventData에 집어넣음
-        pointerEventData = new PointerEventData(eventSystem);
-        //마우스포지션을 pointerEventData 포지션에 집어넣음
-        pointerEventData.position = Input.GetTouch(0).position;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-
-        gRay.Raycast(pointerEventData, results);
-
-        if (results != null)
-        {
-            GameObject clickCard = results[0].gameObject;
-            if (clickCard.CompareTag("CharCard"))
-            {
-                //화면에 캐릭 정보 출력
-                PrintCharText(clickCard);
-
-                //클릭한 캐릭터 강조
-                HighlightCharacter(clickCard);
-                
-            }
-        }
-    }
-
 
     /// <summary>
     /// 공통
     /// click함수를 통해 받은 캐릭터 오브젝트에서 데이터를 뽑아 화면에 출력합니다.
     /// </summary>
     /// <param name="getObj"></param>
-    void PrintCharText(GameObject getObj)
+
+    public void PrintCharText(GameObject getObj)
     {
         Character getObjInfo = getObj.GetComponent<Character>();
 
@@ -143,7 +89,7 @@ public class CharacterManager : MonoBehaviour
     }
 
     //click함수를 통해 받은 캐릭터를 강조합니다.
-    void HighlightCharacter(GameObject getObj)
+    public void HighlightCharacter(GameObject getObj)
     {
         //클릭한 obj의 이미지 변수들을 받아옵니다.
         Image getObjIMG = getObj.GetComponent<Image>();
@@ -222,15 +168,29 @@ public class CharacterManager : MonoBehaviour
 
     }
 
-    void SaveStriker()
+    public void SaveStriker()
     {
-        if(StrikerCharacter != null)
+        if (StrikerCharacter != null)
         {
-            for (int i =0; i<charList.Count; i++)
+            for (int i = 0; i < charList.Count; i++)
             {
                 if (StrikerCharacter.name == charList[i].name)
                 {
                     strikerCharPrefab = charList[i];
+
+                    switch (i)
+                    {
+                        case 0:
+                            strikerName = CharacterName.Gilbert;
+                            break;
+                        case 1:
+                            strikerName = CharacterName.Walhwa;
+                            break;
+                        case 2:
+                            strikerName = CharacterName.Patrick;
+                            break;
+                    }
+
                     break;
                 }
             }

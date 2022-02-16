@@ -4,14 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
+    public CharacterManager charManager;
     public GameObject itemBeingDragged;
     Vector3 startPosition;
     public GameObject target;
 
     public List<GameObject> charList = new List<GameObject>();
 
+    public void OnPointerClick(PointerEventData data)
+    {
+#if UNITY_EDITOR_WIN
+        data.position = Input.mousePosition;
+#elif UNITY_ANDROID
+        data.position = Input.GetTouch(0).position;
+#endif
+
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        charManager.gRay.Raycast(data, results);
+
+
+        GameObject clickCard = results[0].gameObject;
+        if (clickCard.CompareTag("CharCard"))
+        {
+            //화면에 캐릭 정보 출력
+            charManager.PrintCharText(clickCard);
+
+            //클릭한 캐릭터 강조
+            charManager.HighlightCharacter(clickCard);
+        }
+    }
 
     //이 스크립트가 붙은 오브젝트를 마우스 드래그를 시작했을 때 호출
     public void OnBeginDrag(PointerEventData eventData)
