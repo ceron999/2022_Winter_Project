@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7191452305528022392}
   - component: {fileID: 7191452305528022399}
   - component: {fileID: 7191452305528022398}
+  - component: {fileID: 3888915489002764282}
   m_Layer: 5
   m_Name: GilbertChar
   m_TagString: CharCard
@@ -99,6 +100,22 @@ MonoBehaviour:
   Speed: 1
   Characteristic: "\uAE38\uBC84\uD2B8 \uD2B9\uC131"
   Character_Detail: "\uAE38\uBC84\uD2B8 \uB514\uD14C\uC77C"
+--- !u!114 &3888915489002764282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191452305528022396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charManager: {fileID: 0}
+  itemBeingDragged: {fileID: 0}
+  target: {fileID: 0}
+  charList: []
 --- !u!1 &7191452305943962172
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 2268005966082256618}
   - component: {fileID: 2268005966082256619}
   - component: {fileID: 2268005966082256596}
+  - component: {fileID: -8749723048444507365}
   m_Layer: 5
   m_Name: PatrickChar
   m_TagString: CharCard
@@ -253,6 +254,22 @@ MonoBehaviour:
   Speed: 1
   Characteristic: "\uD328\uD2B8\uB9AD \uD2B9\uC131"
   Character_Detail: "\uD328\uD2B8\uB9AD \uB514\uD14C\uC77C"
+--- !u!114 &-8749723048444507365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2268005966082256598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charManager: {fileID: 0}
+  itemBeingDragged: {fileID: 0}
+  target: {fileID: 0}
+  charList: []
 --- !u!1 &2268005966532680394
 GameObject:
   m_ObjectHideFlags: 0

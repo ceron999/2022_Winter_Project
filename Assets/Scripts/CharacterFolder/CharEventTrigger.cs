@@ -7,39 +7,36 @@ using UnityEngine.EventSystems;
 public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public CharacterManager charManager;
+
+    //드래그할 때 시작, 끝 오브젝트를 저장하는 변수들
     public GameObject itemBeingDragged;
     Vector3 startPosition;
     public GameObject target;
+    bool isDrag = false;    //현재 드래그가 끝나지 않았다면 클릭 이벤트가 작동되지 않도록 하는 변수
 
     public List<GameObject> charList = new List<GameObject>();
 
     public void OnPointerClick(PointerEventData data)
     {
-#if UNITY_EDITOR_WIN
-        data.position = Input.mousePosition;
-#elif UNITY_ANDROID
-        data.position = Input.GetTouch(0).position;
-#endif
-
-        List<RaycastResult> results = new List<RaycastResult>();
-
-        charManager.gRay.Raycast(data, results);
-
-
-        GameObject clickCard = results[0].gameObject;
-        if (clickCard.CompareTag("CharCard"))
+        if (!isDrag)
         {
-            //화면에 캐릭 정보 출력
-            charManager.PrintCharText(clickCard);
+            GameObject clickCard = data.pointerClick.gameObject;
 
-            //클릭한 캐릭터 강조
-            charManager.HighlightCharacter(clickCard);
+            if (clickCard.CompareTag("CharCard"))
+            {
+                //화면에 캐릭 정보 출력
+                charManager.PrintCharText(clickCard);
+
+                //클릭한 캐릭터 강조
+                charManager.HighlightCharacter(clickCard);
+            }
         }
     }
 
     //이 스크립트가 붙은 오브젝트를 마우스 드래그를 시작했을 때 호출
     public void OnBeginDrag(PointerEventData eventData)
     {
+        isDrag = true;
         itemBeingDragged = gameObject;
         startPosition = transform.position;
     }
@@ -70,13 +67,17 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         {
             itemBeingDragged.transform.position = target.transform.position;
             target.transform.position = getposition;
+
+            //스트라이커 카드 위치에 새로운 캐릭터 카드가 들어왔으므로 해당 캐릭터를 스트라이커로 지정합니다.
+            charManager.SetStriker(itemBeingDragged, target);
+            charManager.SaveStriker();
         }
         //아니면 원래 위치로
         else
         {
             transform.position = startPosition;
         }
-
+        isDrag = false;
     }
 };
 

@@ -35,14 +35,13 @@ public class CardInfo : MonoBehaviour
     public SpriteRenderer cardOrderSpriter;
     public List<GameObject> order;
 
-    private void Awake()
+    private void Start()
     {
         if(cardMgr != null)
             order = cardMgr.cardQueue;
         else
         {
-            GameObject temp = GameObject.Find("CardManager");
-            cardMgr = temp.GetComponent<CardManager>();
+            cardMgr = CardManager.cardManager;
             order = cardMgr.cardQueue;
         }
 

@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 450562787661307787}
   - component: {fileID: 450562787661307786}
   - component: {fileID: 450562787661307789}
+  - component: {fileID: -4865500458610815423}
   m_Layer: 5
   m_Name: WalhwaChar
   m_TagString: CharCard
@@ -249,6 +250,22 @@ MonoBehaviour:
   Speed: 1
   Characteristic: "\uC6D4\uD654 \uACF5\uC8FC \uD2B9\uC131"
   Character_Detail: "\uC6D4\uD654 \uACF5\uC8FC \uB514\uD14C\uC77C"
+--- !u!114 &-4865500458610815423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450562787661307791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charManager: {fileID: 0}
+  itemBeingDragged: {fileID: 0}
+  target: {fileID: 0}
+  charList: []
 --- !u!1 &450562787832668515
 GameObject:
   m_ObjectHideFlags: 0

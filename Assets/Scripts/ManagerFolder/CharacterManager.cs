@@ -17,28 +17,26 @@ public class CharacterManager : MonoBehaviour
     //캐릭터들 스크립트를 가져올 수 있는 obj List
     public List<GameObject> charList = new List<GameObject>();
 
-    public CharacterName strikerName;
-    public GameObject strikerCharPrefab;
+    public CharacterName strikerName;       //스트라이커 카드를 해당 변수로 판단합니다.
+    public int strikerIdx;
     public GameObject StrikerCharacter;     //현재 스트라이커로 지정된 오브젝트입니다.
     public GameObject highlightedChar = null;    //현재 강조된 캐릭터 obj를 담습니다.
 
     //UI클릭을 위한 재료들
     [SerializeField] GameObject canvas;
-    public GraphicRaycaster gRay;
-    PointerEventData pointerEventData;
-    EventSystem eventSystem;
 
     //text관련 출력을 위한 text모음들
     public Text charDetailText;
     public Text characteristicText;
+
+    Text DragCharText;
+    Text TargetCharText;
 
     private void Awake()
     {
         if (charManager == null)
         {
             charManager = this;
-            gRay = canvas.GetComponent<GraphicRaycaster>();
-            eventSystem = GetComponent<EventSystem>();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -53,25 +51,7 @@ public class CharacterManager : MonoBehaviour
         strikertext.GetComponent<Text>().text = "Striker";
     }
 
-    private void Update()
-    {
-
-    }
-
-    /// <summary>
-    /// pc버전
-    /// </summary>
-
-    /// <summary>
-    /// 안드로이드 버전
-    /// </summary>
-
-    /// <summary>
-    /// 공통
-    /// click함수를 통해 받은 캐릭터 오브젝트에서 데이터를 뽑아 화면에 출력합니다.
-    /// </summary>
-    /// <param name="getObj"></param>
-
+    //매개변수로 제공받은 캐릭터의 세부사항을 아래에 출력합니다.
     public void PrintCharText(GameObject getObj)
     {
         Character getObjInfo = getObj.GetComponent<Character>();
@@ -93,8 +73,6 @@ public class CharacterManager : MonoBehaviour
     {
         //클릭한 obj의 이미지 변수들을 받아옵니다.
         Image getObjIMG = getObj.GetComponent<Image>();
-
-        Vector3 getposition = getObj.transform.position;
 
         if (!highlightedChar)
         {
@@ -124,39 +102,13 @@ public class CharacterManager : MonoBehaviour
             if(getObj==StrikerCharacter)
             {
                 StrikerCharacter = highlightedChar;
-
-                StrikerCharacter.GetComponent<Character>().isStriker = true;
-                StrikerCharacter.GetComponent<Character>().isSupporter = false;
-                StrikerCharacter.transform.GetChild(0).GetComponent<Text>().text = "Striker";
-
-                getObj.GetComponent<Character>().isStriker = false;
-                getObj.GetComponent<Character>().isSupporter = true;
-                getObj.transform.GetChild(0).GetComponent<Text>().text = "Supporter";
             }
 
             //하이라이트 캐릭터가 스트라이커인 경우
             else if(highlightedChar==StrikerCharacter)
             {
                 StrikerCharacter = getObj;
-
-                StrikerCharacter.GetComponent<Character>().isStriker = true;
-                StrikerCharacter.GetComponent<Character>().isSupporter = false;
-                StrikerCharacter.transform.GetChild(0).GetComponent<Text>().text = "Striker";
-
-                highlightedChar.GetComponent<Character>().isStriker = false;
-                highlightedChar.GetComponent<Character>().isSupporter = true;
-                highlightedChar.transform.GetChild(0).GetComponent<Text>().text = "Supporter";
             }
-            
-            //위치 바꾸기
-            getObj.transform.position = highlightedChar.transform.position;
-            highlightedChar.transform.position = getposition;
-
-            //위치 바뀐 후의 스트라이커 캐릭터 특성 설명
-            charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
-
-            //스트라이커 프리팹 저장하는 함수입니다.
-            SaveStriker();
 
             highlightedChar = null;
         }
@@ -168,6 +120,29 @@ public class CharacterManager : MonoBehaviour
 
     }
 
+    //캐릭터가 이동했을 경우에 해당 캐릭터를 striker로 바꿔주기 위한 함수
+    public void SetStriker(GameObject getDragCharacter, GameObject getTargetCharacter)
+    {
+        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
+        DragCharText = getDragCharacter.GetComponentInChildren<Text>();
+        TargetCharText = getTargetCharacter.GetComponentInChildren<Text>();
+        
+        //드래그하는 캐릭이 스트라이커라면 드래그하는 캐릭를 서포터로, 타겟 캐릭을 스트라이커로 조정합니다.
+        if (getDragCharacter.name == StrikerCharacter.name)
+        {
+            StrikerCharacter = getTargetCharacter;
+            DragCharText.text = "Supporter";
+            TargetCharText.text = "Striker";
+        }
+
+        else if (getTargetCharacter.name == StrikerCharacter.name)
+        {
+            StrikerCharacter = getDragCharacter;
+            TargetCharText.text = "Supporter";
+            DragCharText.text = "Striker";
+        }
+    }
+
     public void SaveStriker()
     {
         if (StrikerCharacter != null)
@@ -176,21 +151,9 @@ public class CharacterManager : MonoBehaviour
             {
                 if (StrikerCharacter.name == charList[i].name)
                 {
-                    strikerCharPrefab = charList[i];
-
-                    switch (i)
-                    {
-                        case 0:
-                            strikerName = CharacterName.Gilbert;
-                            break;
-                        case 1:
-                            strikerName = CharacterName.Walhwa;
-                            break;
-                        case 2:
-                            strikerName = CharacterName.Patrick;
-                            break;
-                    }
-
+                    //현재 스트라이커 이름을 저장합니다.
+                    strikerName = (CharacterName)i;
+                    strikerIdx = i;
                     break;
                 }
             }
