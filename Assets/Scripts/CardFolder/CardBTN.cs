@@ -22,6 +22,7 @@ public class CardBTN : MonoBehaviour
             parentInfo.cardOrderImg.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
             parentInfo.cardOrderImg.SetActive(true);// �̹��� ��Ÿ���� ��.
             parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardMgr.SetSelectedCard();
         }
 
         else if (parentInfo.order.Count == 1)
@@ -29,6 +30,7 @@ public class CardBTN : MonoBehaviour
             parentInfo.cardOrderImg2.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
             parentInfo.cardOrderImg2.SetActive(true);// �̹��� ��Ÿ���� ��.
             parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardMgr.SetSelectedCard();
         }
 
         else
@@ -36,6 +38,7 @@ public class CardBTN : MonoBehaviour
             parentInfo.cardOrderImg3.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
             parentInfo.cardOrderImg3.SetActive(true);// �̹��� ��Ÿ���� ��.
             parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardMgr.SetSelectedCard();
         }
         //parentInfo.isSelected = true;
 
@@ -56,7 +59,8 @@ public class CardBTN : MonoBehaviour
             currIdx = GetCurrIdx();
 
             parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
-            if(IsImgOpenMore2())
+            parentInfo.cardMgr.DeleteSelectedCard();
+            if (IsImgOpenMore2())
                 currImg.SetActive(false); // �̹��� ����.
             else
                 parentInfo.cardOrderImg.SetActive(false);
@@ -69,6 +73,7 @@ public class CardBTN : MonoBehaviour
             currIdx = GetCurrIdx();
 
             parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
+            parentInfo.cardMgr.DeleteSelectedCard();
             if (IsImgOpenMore2())
                 currImg.SetActive(false); // �̹��� ����.
             else
@@ -82,6 +87,7 @@ public class CardBTN : MonoBehaviour
             currIdx = GetCurrIdx();
 
             parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
+            parentInfo.cardMgr.DeleteSelectedCard();
             if (IsImgOpenMore2())
                 currImg.SetActive(false); // �̹��� ����.
             else
