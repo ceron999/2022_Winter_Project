@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /*
-    �Լ��� ���� ������ �ּ����� ��!!!!!!!!!!!!!!!!!!!!!!! ���ּ���!!!!
-     */
-     //오네가이
+    //오네가이
     public static GameManager gameManager;
 
     public List<GameObject> inGameCardOrder;
@@ -16,18 +13,19 @@ public class GameManager : MonoBehaviour
     //[SerializeField] Enemy enemy;
 
 
-    //void Awake()
-    //{
-    //    if (gameManager == null)
-    //    {
-    //        gameManager = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    void Awake()
+    {
+        if (gameManager == null)
+        {
+            gameManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     //void enqueue() // 플레이어 1차이 = 에너미 2차이 => 플레이어에 가중치 1 부여 후 계산
     //{
     //    List<GameObject> big;

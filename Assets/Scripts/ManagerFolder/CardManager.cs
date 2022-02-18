@@ -64,7 +64,7 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < gilbertCards.Count; i++)
                 {
                     cards = Instantiate(gilbertCards[i], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
 
                     if (i < 4)
                         cards.transform.localPosition = new Vector3(200 + (270 * i), -200, 0);
@@ -76,13 +76,13 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(walwhaCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1050, 0);
                 }
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(patrickCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1300, 0);
                 }
                 break;
@@ -90,7 +90,7 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < walwhaCards.Count; i++)
                 {
                     cards = Instantiate(walwhaCards[i], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
 
                     if (i < 4)
                         cards.transform.localPosition = new Vector3(200 + (270 * i), -200, 0);
@@ -102,13 +102,13 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(patrickCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1050, 0);
                 }
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(gilbertCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1300, 0);
                 }
                 break;
@@ -116,7 +116,7 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < patrickCards.Count; i++)
                 {
                     cards = Instantiate(patrickCards[i], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
 
                     if (i < 4)
                         cards.transform.localPosition = new Vector3(200 + (270 * i), -200, 0);
@@ -128,13 +128,13 @@ public class CardManager : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(walwhaCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1050, 0);
                 }
                 for (int i = 0; i < 4; i++)
                 {
                     cards = Instantiate(gilbertCards[i + 4], transform.position, Quaternion.identity);
-                    cards.transform.parent = scrollContent.transform;
+                    cards.transform.SetParent(scrollContent.transform);
                     cards.transform.localPosition = new Vector3(200 + (270 * i), -1300, 0);
                 }
                 break;

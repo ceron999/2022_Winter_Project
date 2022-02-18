@@ -211,6 +211,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 450562787661307788, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
   m_PrefabInstance: {fileID: 450562787528061142}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &316575956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+  m_PrefabInstance: {fileID: 450562787528061142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338716080
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f604270a3a0c8d747bcf601ed5a4c2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inGameCardOrder: []
+  cardmgr: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &338716082
 Transform:
   m_ObjectHideFlags: 0
@@ -365,11 +373,10 @@ MonoBehaviour:
   - {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
   - {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
   strikerName: 0
-  strikerCharPrefab: {fileID: 0}
+  strikerIdx: 0
   StrikerCharacter: {fileID: 796791000}
   highlightedChar: {fileID: 0}
   canvas: {fileID: 647223429}
-  gRay: {fileID: 0}
   charDetailText: {fileID: 515010403}
   characteristicText: {fileID: 1222154987}
 --- !u!4 &491356599
@@ -648,24 +655,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7191452305528022397, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
   m_PrefabInstance: {fileID: 7191452305984026020}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &796791002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796791000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charManager: {fileID: 491356598}
-  itemBeingDragged: {fileID: 0}
-  target: {fileID: 0}
-  charList:
-  - {fileID: 937321441}
-  - {fileID: 994378325}
 --- !u!1 &891721766
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,52 +890,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924731659}
   m_CullTransparentMesh: 1
---- !u!1 &937321441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
-  m_PrefabInstance: {fileID: 450562787528061142}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &937321442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937321441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charManager: {fileID: 491356598}
-  itemBeingDragged: {fileID: 0}
-  target: {fileID: 0}
-  charList:
-  - {fileID: 796791000}
-  - {fileID: 994378325}
---- !u!1 &994378325 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
-  m_PrefabInstance: {fileID: 2268005964528281163}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &994378326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994378325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565485fbcb90683459e1bbfcdc0c9f2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charManager: {fileID: 491356598}
-  itemBeingDragged: {fileID: 0}
-  target: {fileID: 0}
-  charList:
-  - {fileID: 796791000}
-  - {fileID: 937321441}
 --- !u!1 &1026873546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1588,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978769990}
   m_CullTransparentMesh: 1
+--- !u!1 &1992826489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+  m_PrefabInstance: {fileID: 2268005964528281163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &450562787528061142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1652,6 +1600,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 647223433}
     m_Modifications:
+    - target: {fileID: -4865500458610815423, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+      propertyPath: charList.Array.data[0]
+      value: 
+      objectReference: {fileID: 796791000}
+    - target: {fileID: -4865500458610815423, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+      propertyPath: charList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1992826489}
     - target: {fileID: 450562786490294552, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
       propertyPath: m_SizeDelta.x
       value: 202.5
@@ -1786,6 +1742,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 647223433}
     m_Modifications:
+    - target: {fileID: -8749723048444507365, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+      propertyPath: charList.Array.data[0]
+      value: 
+      objectReference: {fileID: 796791000}
+    - target: {fileID: -8749723048444507365, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+      propertyPath: charList.Array.data[1]
+      value: 
+      objectReference: {fileID: 316575956}
     - target: {fileID: 2268005965185983184, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1920,6 +1884,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 647223433}
     m_Modifications:
+    - target: {fileID: 3888915489002764282, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: charList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1992826489}
+    - target: {fileID: 3888915489002764282, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: charList.Array.data[1]
+      value: 
+      objectReference: {fileID: 316575956}
     - target: {fileID: 7191452305528022396, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
       propertyPath: m_Name
       value: GilbertChar

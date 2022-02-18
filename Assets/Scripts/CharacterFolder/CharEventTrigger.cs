@@ -16,6 +16,11 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public List<GameObject> charList = new List<GameObject>();
 
+    void Start()
+    {
+        charManager = CharacterManager.charManager;
+    }
+
     public void OnPointerClick(PointerEventData data)
     {
         if (!isDrag)
