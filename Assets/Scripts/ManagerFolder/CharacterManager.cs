@@ -32,6 +32,13 @@ public class CharacterManager : MonoBehaviour
     Text DragCharText;
     Text TargetCharText;
 
+    public GameObject enemyExplation;
+    public Text enemyExplanationText;
+
+    public GameObject enemyImage;
+    public Image testImg; //원래 이미지
+    public Sprite enemy;//바뀌어질 이미지
+
     private void Awake()
     {
         if (charManager == null)
@@ -49,6 +56,12 @@ public class CharacterManager : MonoBehaviour
     {
         GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
         strikertext.GetComponent<Text>().text = "Striker";
+
+        //적에 대한 설명
+        enemyExplanationText.text = enemyExplation.GetComponent<Enemy1>().enemyDetail;
+        //적 이미지
+        enemy = enemyImage.GetComponent<Enemy1>().enemyImg;
+        testImg.sprite = enemy;
     }
 
     //매개변수로 제공받은 캐릭터의 세부사항을 아래에 출력합니다.
