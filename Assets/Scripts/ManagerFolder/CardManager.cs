@@ -17,7 +17,9 @@ public class CardManager : MonoBehaviour
     public List<GameObject> patrickCards;
     public bool isBTNOpened = false;        //CardInfo, CardBTN에서 이동카드를 추가하는 버튼이 열려있는지 확인하는 변수
 
-
+    public GameObject firstCard;
+    public GameObject secondCard;
+    public GameObject thirdCard;
 
     //220216/정윤석/카드 프리팹 변경 이후 사용할 변수들
     
@@ -139,5 +141,15 @@ public class CardManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void SetSelectedCard()
+    {
+        firstCard =cardQueue[0];
+    }
+
+    public void DeleteSelectedCard()
+    {
+
     }
 }

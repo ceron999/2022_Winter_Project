@@ -80,6 +80,7 @@ public class CardInfo : MonoBehaviour
         if (isSelected)
         {
             order.Remove(cardObj); //해당 카드의 번호 큐에서 삭제
+            cardMgr.DeleteSelectedCard();
             cardOrderImg.SetActive(false); // 이미지 없앰.
             cardMgr.ChangeOrderImg();
             isSelected = false;
@@ -91,6 +92,7 @@ public class CardInfo : MonoBehaviour
             cardOrderImg.GetComponent<Image>().sprite = cardMgr.sprites[order.Count];
             cardOrderImg.SetActive(true);// 이미지 나타나게 함.
             order.Add(cardObj); // 해당 카드 번호 큐에 삽입
+            cardMgr.SetSelectedCard();
             isSelected = true;
         }
     }

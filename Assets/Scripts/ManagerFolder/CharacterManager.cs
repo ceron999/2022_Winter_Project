@@ -26,7 +26,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject canvas;
 
     //text관련 출력을 위한 text모음들
-    public Text charDetailText;
+    public Text strikerExplanationText;
     public Text characteristicText;
 
     Text DragCharText;
@@ -56,14 +56,16 @@ public class CharacterManager : MonoBehaviour
     {
         Character getObjInfo = getObj.GetComponent<Character>();
 
-        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
+        strikerExplanationText.text = StrikerCharacter.GetComponent<Character>().strikerExplanation;
 
         if (!highlightedChar)
         {
-            characteristicText.text = getObjInfo.Characteristic;
+            strikerExplanationText.text = getObjInfo.strikerExplanation;
+            characteristicText.text = getObjInfo.characteristic;
         }
         else
         {
+            strikerExplanationText.text = StrikerCharacter.GetComponent<Character>().strikerExplanation;
             characteristicText.text = null;
         }
     }
@@ -109,7 +111,7 @@ public class CharacterManager : MonoBehaviour
             {
                 StrikerCharacter = getObj;
             }
-
+            
             highlightedChar = null;
         }
         else
@@ -123,7 +125,6 @@ public class CharacterManager : MonoBehaviour
     //캐릭터가 이동했을 경우에 해당 캐릭터를 striker로 바꿔주기 위한 함수
     public void SetStriker(GameObject getDragCharacter, GameObject getTargetCharacter)
     {
-        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
         DragCharText = getDragCharacter.GetComponentInChildren<Text>();
         TargetCharText = getTargetCharacter.GetComponentInChildren<Text>();
         

@@ -377,7 +377,7 @@ MonoBehaviour:
   StrikerCharacter: {fileID: 796791000}
   highlightedChar: {fileID: 0}
   canvas: {fileID: 647223429}
-  charDetailText: {fileID: 515010403}
+  strikerExplanationText: {fileID: 515010403}
   characteristicText: {fileID: 1222154987}
 --- !u!4 &491356599
 Transform:
@@ -493,8 +493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.511, y: 5.127}
-  m_SizeDelta: {x: 741.775, y: 68.968}
+  m_AnchoredPosition: {x: 13.9066, y: 1.1625}
+  m_SizeDelta: {x: 834.7417, y: 88.1451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &515010403
 MonoBehaviour:
@@ -518,7 +518,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1079,8 +1079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000017881, y: 0.0000013113}
-  m_SizeDelta: {x: 634.259, y: 86.1253}
+  m_AnchoredPosition: {x: 4.5424, y: 1.1356}
+  m_SizeDelta: {x: 852.2966, y: 124.7361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222154987
 MonoBehaviour:
@@ -1104,10 +1104,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1720,6 +1720,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 450562787661307789, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+      propertyPath: Characteristic
+      value: "\uC6D4\uD654 \uACF5\uC8FC: 2\uD134 \uC885\uB8CC\uC2DC\uB9C8\uB2E4 \uCCB4\uB825
+        20 \uD68C\uBCF5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 450562787661307789, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+      propertyPath: Character_Detail
+      value: "\uC6D4\uD654 \uACF5\uC8FC: 2\uD134 \uC885\uB8CC\uC2DC\uB9C8\uB2E4 \uCCB4\uB825
+        20 \uD68C\uBCF5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 450562787661307789, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
+      propertyPath: strikerExplanation
+      value: "\uC6D4\uD654 \uACF5\uC8FC: \uBCF4\uD1B5\uC758 \uC2A4\uD53C\uB4DC\uB97C
+        \uAC00\uC9C0\uACE0 \uC788\uC73C\uBA70 \uAE34 \uACF5\uACA9 \uBC94\uC704\uC640
+        \uD68C\uBCF5\uC73C\uB85C \uC804\uD22C\uC5D0\uC11C \uC6B0\uC704\uB97C \uC810\uD558\uB294
+        \uC2A4\uD0C0\uC77C"
+      objectReference: {fileID: 0}
     - target: {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
       propertyPath: m_Name
       value: WalhwaChar
@@ -1769,6 +1786,24 @@ PrefabInstance:
     - target: {fileID: 2268005965860412067, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268005966082256596, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+      propertyPath: Characteristic
+      value: "\uD328\uD2B8\uB9AD: \uD134\uB9C8\uB2E4 \uC790\uC2E0\uC774 \uBA3C\uC800
+        \uACF5\uACA9\uBC1B\uC744 \uACBD\uC6B0 \uADF8 \uB2E4\uC74C\uC5D0 \uC0AC\uC6A9\uD558\uB294
+        \uCE74\uB4DC \uD558\uB098\uC758 \uB370\uBBF8\uC9C0 10 \uC99D\uAC00"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268005966082256596, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+      propertyPath: Character_Detail
+      value: "\uD328\uD2B8\uB9AD: \uB290\uB9B0 \uC2A4\uD53C\uB4DC\uB85C \uC801\uC758
+        \uD589\uB3D9\uC744 \uC608\uCE21\uD55C \uB4A4 \uAC15\uD55C \uACF5\uACA9\uC73C\uB85C
+        \uBC18\uACA9\uD558\uB294 \uC2A4\uD0C0\uC77C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268005966082256596, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+      propertyPath: strikerExplanation
+      value: "\uD328\uD2B8\uB9AD: \uD134\uB9C8\uB2E4 \uC790\uC2E0\uC774 \uBA3C\uC800
+        \uACF5\uACA9\uBC1B\uC744 \uACBD\uC6B0 \uADF8 \uB2E4\uC74C\uC5D0 \uC0AC\uC6A9\uD558\uB294
+        \uCE74\uB4DC \uD558\uB098\uC758 \uB370\uBBF8\uC9C0 10 \uC99D\uAC00"
       objectReference: {fileID: 0}
     - target: {fileID: 2268005966082256597, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
       propertyPath: m_Pivot.x
@@ -1979,6 +2014,33 @@ PrefabInstance:
     - target: {fileID: 7191452305528022397, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191452305528022398, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: Characteristic
+      value: "\uAE38\uBC84\uD2B8: \uD55C \uD134\uC5D0 \uACF5\uACA9 \uCE74\uB4DC 3\uC7A5\uC744
+        \uC0AC\uC6A9\uD574\uC11C \uC804\uBD80 \uBA85\uC911\uC2DC\uCF30\uC744 \uACBD\uC6B0
+        \uB9C8\uC9C0\uB9C9\uC5D0 \uC0AC\uC6A9\uD55C \uCE74\uB4DC \uD55C \uBC88 \uB354
+        \uC0AC\uC6A9(7\uBC88\uC9F8)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191452305528022398, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: characteristic
+      value: "\uAE38\uBC84\uD2B8: \uD55C \uD134\uC5D0 \uACF5\uACA9 \uCE74\uB4DC 3\uC7A5\uC740
+        \uC0AC\uC6A9\uD574\uC11C \uC804\uBD80 \uBA85\uC911\uC2DC\uCF30\uC744 \uCF31\uC6B0
+        \uB9C8\uC9C0\uB9C9\uC5D0 \uC0AC\uC6A9\uD55C \uCE74\uB4DC \uD55C \uBC88 \uB354
+        \uC0AC\uC6A9(7\uBC88)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191452305528022398, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: Character_Detail
+      value: "\uAE38\uBC84\uD2B8: \uBE60\uB978 \uC2A4\uD53C\uB4DC\uB85C \uC720\uB9AC\uD55C
+        \uC704\uCE58\uB97C \uC0AC\uC218\uD574\uC11C \uC804\uD22C\uC758 \uD310\uB3C4\uB97C
+        \uC790\uC2E0\uC5D0\uAC8C \uC720\uB9AC\uD558\uB3C4\uB85D \uB9CC\uB4E0\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191452305528022398, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
+      propertyPath: strikerExplanation
+      value: "\uAE38\uBC84\uD2B8: \uBE60\uB978 \uC2A4\uD53C\uB4DC\uB85C \uC720\uB9AC\uD55C
+        \uC704\uCE58\uB97C \uC0AC\uC218\uD574\uC11C \uC804\uD22C\uC758 \uD310\uB3C4\uB97C
+        \uC790\uC2E0\uC5D0\uAC8C \uC720\uB9AC\uD558\uB3C4\uB85D \uB9CC\uB4DC\uB294
+        \uC2A4\uD0C0\uC77C"
       objectReference: {fileID: 0}
     - target: {fileID: 7191452305528022399, guid: 3a00f7cdeda0c7e47964d51610c79ef6, type: 3}
       propertyPath: m_Type
