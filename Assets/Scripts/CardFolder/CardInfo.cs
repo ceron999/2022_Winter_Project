@@ -80,9 +80,11 @@ public class CardInfo : MonoBehaviour
         if (isSelected)
         {
             order.Remove(cardObj); //해당 카드의 번호 큐에서 삭제
-            cardMgr.DeleteSelectedCard();
+            cardMgr.DeleteSelectedCard();   //선택된 카드 리스트에서 해당 카드를 삭제합니다.
+
             cardOrderImg.SetActive(false); // 이미지 없앰.
             cardMgr.ChangeOrderImg();
+
             isSelected = false;
         }
         else
@@ -91,8 +93,10 @@ public class CardInfo : MonoBehaviour
             // 큐의 마지막 인덱스 번호 = 카드 번호. 해당 번호의 이미지 불러옴.
             cardOrderImg.GetComponent<Image>().sprite = cardMgr.sprites[order.Count];
             cardOrderImg.SetActive(true);// 이미지 나타나게 함.
+
             order.Add(cardObj); // 해당 카드 번호 큐에 삽입
-            cardMgr.SetSelectedCard();
+            cardMgr.SetSelectedCard();  //선택된 카드 리스트에 해당 카드를 추가합니다.
+
             isSelected = true;
         }
     }
