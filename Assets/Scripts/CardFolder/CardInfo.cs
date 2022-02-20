@@ -1,15 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
-public class CardInfo : MonoBehaviour
+public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isSupporterCard;
     public int cardNumber;
     public string cardName;
-    public int damage; 
+    public int damage;
     public int cardCooldown;
     public string cardDetail;
     //Damage_Range;
@@ -34,10 +34,14 @@ public class CardInfo : MonoBehaviour
 
     public SpriteRenderer cardOrderSpriter;
     public List<GameObject> order;
-
+    
+    //엄지민 추가
+    bool isClicked = false; //클릭판정
+    private float ClickedTime = 0;
+    private float MaxClickTime = 1; //롱클릭 판정
     private void Start()
     {
-        if(cardMgr != null)
+        if (cardMgr != null)
             order = cardMgr.cardQueue;
         else
         {
@@ -63,18 +67,39 @@ public class CardInfo : MonoBehaviour
         cardOrderImg.SetActive(false);
         cardOrderSpriter = cardOrderImg.GetComponent<SpriteRenderer>();
 
-        if(this.isMoveCard)
+        if (this.isMoveCard)
         {
             Vector2 position2 = new Vector2(60, 30);
             cardOrderImg2.transform.localPosition = position2;
             cardOrderImg2.SetActive(false);
-            
+
             Vector2 position3 = new Vector2(60, 0);
             cardOrderImg3.transform.localPosition = position3;
             cardOrderImg3.SetActive(false);
         }
     }
-
+    public void OnPointerDown (PointerEventData Data)
+    {
+        isClicked = true;
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isClicked = false;
+        ClickedTime = 0;
+    }
+    private void Update()
+    {
+        if(isClicked)
+        {
+            ClickedTime += Time.deltaTime;
+            Debug.Log(ClickedTime);
+        }
+        if(ClickedTime >= MaxClickTime)
+        {
+            cardMgr.longClick(cardObj);
+        }
+        
+    }
     public void SelectCard()
     {
         if (isSelected)
@@ -170,4 +195,5 @@ public class CardInfo : MonoBehaviour
     {
         cardOrderImg.GetComponent<Image>().sprite = cardMgr.sprites[order.IndexOf(cardObj)]; // 큐에서 자기 인덱스 번호의 이미지로 변경.
     }
+
 }

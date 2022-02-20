@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7412190407836568375}
   m_Layer: 5
   m_Name: GilbertMoveBTN
-  m_TagString: Untagged
+  m_TagString: SkillCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,6 @@ MonoBehaviour:
   cardOrderImg: {fileID: 0}
   cardOrderImg2: {fileID: 0}
   cardOrderImg3: {fileID: 0}
-  isBTNOpened: 0
   cardPlusBTNPrefab: {fileID: 6581718344256803049, guid: df394cc97b0ad9b4cb69c9363f5629a4, type: 3}
   cardMinusBTNPrefab: {fileID: 7227295881708846274, guid: 6f687cb195aa37145b714b5583ebe30e, type: 3}
   plusCardBTN: {fileID: 0}
