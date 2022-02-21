@@ -20,10 +20,6 @@ public class CardManager : MonoBehaviour
     public Text skillDetailText;
     public bool isBTNOpened = false;        //CardInfo, CardBTN에서 이동카드를 추가하는 버튼이 열려있는지 확인하는 변수
 
-    bool isClicked = false; //클릭판정
-    private float ClickedTime = 0;
-    private float MaxClickTime = 1; //롱클릭 판정
-
     //220216/정윤석/카드 프리팹 변경 이후 사용할 변수들
     
     void Awake()
@@ -53,13 +49,6 @@ public class CardManager : MonoBehaviour
         {
             cardQueue[i].GetComponent<CardInfo>().ReOrder();
         }
-    }
-   
-    private void Update()
-    {
-        if(isClicked)
-            ClickedTime += Time.deltaTime;  
-        
     }
     public void longClick(GameObject clickCard)
     {

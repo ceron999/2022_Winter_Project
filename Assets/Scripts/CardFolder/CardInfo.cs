@@ -78,13 +78,21 @@ public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             cardOrderImg3.SetActive(false);
         }
     }
-    public void OnPointerDown (PointerEventData Data)
+    public void OnPointerDown (PointerEventData eventData)
     {
-        isClicked = true;
+        GameObject card = eventData.pointerPressRaycast.gameObject;
+        if(card.CompareTag("SkillCard"))
+        {
+            isClicked = true;
+        }
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         isClicked = false;
+        if (ClickedTime >= MaxClickTime)
+        {
+            isSelected = false;
+        }
         ClickedTime = 0;
     }
     private void Update()
@@ -94,15 +102,20 @@ public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             ClickedTime += Time.deltaTime;
             Debug.Log(ClickedTime);
         }
+
         if(ClickedTime >= MaxClickTime)
         {
             cardMgr.longClick(cardObj);
+        }
+        if(Input.GetMouseButtonDown(0) && ClickedTime < MaxClickTime)
+        {
+            cardMgr.detailtextPanel.SetActive(false);
         }
         
     }
     public void SelectCard()
     {
-        if (isSelected)
+        if (isSelected) 
         {
             order.Remove(cardObj); //해당 카드의 번호 큐에서 삭제
             cardOrderImg.SetActive(false); // 이미지 없앰.
