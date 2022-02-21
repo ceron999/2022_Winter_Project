@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: cardOrder
       value: 
       objectReference: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
+    - target: {fileID: 1870631258600005248, guid: 2b399c0454ee31a4e81ea3feab0706d3, type: 3}
+      propertyPath: cardNumber
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7524049080501658532, guid: 2b399c0454ee31a4e81ea3feab0706d3, type: 3}
       propertyPath: m_Name
       value: PatrickAttackBTN Variant 6

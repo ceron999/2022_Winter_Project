@@ -32,7 +32,6 @@ public class CardBTN : MonoBehaviour
             parentInfo.cardOrderImg2.SetActive(true);//두 번째 이미지 사용
 
             parentInfo.order.Add(parentInfo.cardObj);
-            //parentInfo.cardMgr.SetSelectedCard();
         }
 
         else
@@ -41,9 +40,7 @@ public class CardBTN : MonoBehaviour
             parentInfo.cardOrderImg3.SetActive(true);
 
             parentInfo.order.Add(parentInfo.cardObj);
-            //parentInfo.cardMgr.SetSelectedCard();
         }
-        //parentInfo.isSelected = true;
 
         Destroy(parentInfo.plusCardBTN);
         Destroy(parentInfo.minusCardBTN);

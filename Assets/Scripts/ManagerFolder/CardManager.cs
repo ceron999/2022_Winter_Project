@@ -9,6 +9,7 @@ public class CardManager : MonoBehaviour
     public static CardManager cardManager;
     public GameManager gameManager;
     public CharacterManager charManager;
+    public SceneMoveManager sceneMoveManager;
 
     public List<GameObject> cardQueue;  //스킬 및 이동카드 3개 저장용도 입니다.
     public Sprite[] sprites;            //카드 순서를 표현해줄 이미지를 받아옵니다.
@@ -50,7 +51,10 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.gameManager;
         charManager = CharacterManager.charManager;
+        sceneMoveManager = SceneMoveManager.sceneMoveManager;
+
         sprites = Resources.LoadAll<Sprite>("CardOrder"); //Resources 폴더의 Sprites/Cardorder 의 이미지 불러서 배열에 저장.
         InstantiageCards();
     }
@@ -172,6 +176,7 @@ public class CardManager : MonoBehaviour
                     saveCard.GetComponent<Button>().interactable = false;
                     saveCardInfo = saveCard.GetComponent<CardInfo>();
                     saveCardInfo.cardOrderImg.SetActive(false);
+
                     if (saveCardInfo.isMoveCard)
                     {
                         saveCardInfo.cardOrderImg2.SetActive(false);
@@ -194,6 +199,7 @@ public class CardManager : MonoBehaviour
                     saveCard.GetComponent<Button>().interactable = false;
                     saveCardInfo = saveCard.GetComponent<CardInfo>();
                     saveCardInfo.cardOrderImg.SetActive(false);
+
                     if (saveCardInfo.isMoveCard)
                     {
                         saveCardInfo.cardOrderImg2.SetActive(false);
@@ -216,6 +222,7 @@ public class CardManager : MonoBehaviour
                     saveCard.GetComponent<Button>().interactable = false;
                     saveCardInfo = saveCard.GetComponent<CardInfo>();
                     saveCardInfo.cardOrderImg.SetActive(false);
+
                     if (saveCardInfo.isMoveCard)
                     {
                         saveCardInfo.cardOrderImg2.SetActive(false);
@@ -225,6 +232,8 @@ public class CardManager : MonoBehaviour
                     saveCards.Add(saveCard);
 
                     isThirdCardPrint = true;
+
+                    sceneMoveManager.SetBattleStartBTN();
                 }
                 break;
         }
@@ -306,6 +315,8 @@ public class CardManager : MonoBehaviour
             Destroy(temp);
 
             isThirdCardPrint = false;
+
+            sceneMoveManager.SetBattleStartBTN();
         }
 
         else Debug.Log("CardManager.DeleteSelectedCard() error!");

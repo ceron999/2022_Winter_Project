@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
     - target: {fileID: 7585522112265476452, guid: 75d25f5f5fc27a1458cfbf5bb71ac4fd, type: 3}
       propertyPath: cardNumber
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1790792018881668167, guid: 75d25f5f5fc27a1458cfbf5bb71ac4fd, type: 3}

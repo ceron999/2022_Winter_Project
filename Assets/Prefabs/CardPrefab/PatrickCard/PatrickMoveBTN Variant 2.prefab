@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1636112096350798923}
     - target: {fileID: -5159950097581023842, guid: aec439d83039b1447a0e004e85368223, type: 3}
+      propertyPath: cardNumber
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -5159950097581023842, guid: aec439d83039b1447a0e004e85368223, type: 3}
       propertyPath: isMoveCard
       value: 1
       objectReference: {fileID: 0}

@@ -8,10 +8,11 @@ public class CharacterManager : MonoBehaviour
 {
     static public CharacterManager charManager;
     public GameManager gameManager;
+    public SceneMoveManager sceneMoveManager;
 
     public enum CharacterName
     {
-        Gilbert,Walhwa,Patrick
+        Gilbert,Walwha,Patrick
     }
 
     //캐릭터들 스크립트를 가져올 수 있는 obj List
@@ -54,6 +55,8 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
+        sceneMoveManager = SceneMoveManager.sceneMoveManager;
+
         GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
         strikertext.GetComponent<Text>().text = "Striker";
 

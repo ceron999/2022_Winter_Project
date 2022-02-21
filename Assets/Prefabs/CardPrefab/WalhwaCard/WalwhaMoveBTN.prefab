@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSupporterCard: 0
-  cardNumber: 0
+  cardNumber: 8
   cardName: 
   damage: 0
   cardCooldown: 0
