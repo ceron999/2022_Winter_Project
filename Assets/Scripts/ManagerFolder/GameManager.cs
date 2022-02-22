@@ -8,9 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
 
     public List<GameObject> inGameCardOrder;
-    [SerializeField] CardManager cardmgr;
+    [SerializeField] CardManager cardMgr;
     [SerializeField] Character player;
     //[SerializeField] Enemy enemy;
+
+    public int Turn = 1;
+    public bool isTurnEnd = false;
+    public bool isVictory = false;
+    public bool isDefeated = false;
 
 
     void Awake()
@@ -24,6 +29,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        cardMgr = CardManager.cardManager;
     }
 
     //void enqueue() // 플레이어 1차이 = 에너미 2차이 => 플레이어에 가중치 1 부여 후 계산

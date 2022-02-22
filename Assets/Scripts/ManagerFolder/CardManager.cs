@@ -27,6 +27,7 @@ public class CardManager : MonoBehaviour
     GameObject saveCard;    //플레이어가 선택한 카드를 Instantiate할 때 잠깐 담는 변수
     CardInfo saveCardInfo;  //Instantiate한 카드의 스크립트 정보를 받아올 때 사용할 변수
     public List<GameObject> saveCards;
+    public List<int> saveCardsIdx;
 
     bool isFirstCardPrint = false;
     bool isSecondCardPrint = false;
@@ -187,6 +188,7 @@ public class CardManager : MonoBehaviour
                     }
 
                     saveCards.Add(saveCard);
+                    saveCardsIdx.Add(saveCardInfo.cardNumber);
 
                     isFirstCardPrint = true;
                 }
@@ -210,6 +212,7 @@ public class CardManager : MonoBehaviour
                     }
 
                     saveCards.Add(saveCard);
+                    saveCardsIdx.Add(saveCardInfo.cardNumber);
 
                     isSecondCardPrint = true;
                 }
@@ -233,6 +236,7 @@ public class CardManager : MonoBehaviour
                     }
 
                     saveCards.Add(saveCard);
+                    saveCardsIdx.Add(saveCardInfo.cardNumber);
 
                     isThirdCardPrint = true;
 
@@ -256,6 +260,8 @@ public class CardManager : MonoBehaviour
             {
                 temp = saveCards[0];
                 saveCards.RemoveAt(0);
+                saveCardsIdx.RemoveAt(0);
+
                 Destroy(temp);
 
                 isFirstCardPrint = false;
@@ -265,6 +271,8 @@ public class CardManager : MonoBehaviour
             {
                 temp = saveCards[0];
                 saveCards.RemoveAt(0);
+                saveCardsIdx.RemoveAt(0);
+
                 Destroy(temp);
 
                 saveCards[0].transform.SetParent(firstCard.transform);
@@ -276,6 +284,8 @@ public class CardManager : MonoBehaviour
             {
                 temp = saveCards[0];
                 saveCards.RemoveAt(0);
+                saveCardsIdx.RemoveAt(0);
+
                 Destroy(temp);
 
                 saveCards[0].transform.SetParent(firstCard.transform);
@@ -294,6 +304,8 @@ public class CardManager : MonoBehaviour
             {
                 temp = saveCards[1];
                 saveCards.RemoveAt(1);
+                saveCardsIdx.RemoveAt(1);
+
                 Destroy(temp);
 
                 isSecondCardPrint = false;
@@ -302,6 +314,8 @@ public class CardManager : MonoBehaviour
             {
                 temp = saveCards[1];
                 saveCards.RemoveAt(1);
+                saveCardsIdx.RemoveAt(1);
+
                 Destroy(temp);
 
                 saveCards[1].transform.SetParent(secondCard.transform);
@@ -315,6 +329,8 @@ public class CardManager : MonoBehaviour
         {
             temp = saveCards[2];
             saveCards.RemoveAt(2);
+            saveCardsIdx.RemoveAt(2);
+
             Destroy(temp);
 
             isThirdCardPrint = false;

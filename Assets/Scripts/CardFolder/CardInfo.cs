@@ -59,7 +59,6 @@ public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (isClicked)
         {
-            Debug.Log(1);
             ClickedTime += Time.deltaTime;
 
             if (ClickedTime >= MaxClickTime)

@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSupporterCard: 1
-  cardNumber: 0
+  cardNumber: 300
   cardName: 
   damage: 0
   cardCooldown: 0
