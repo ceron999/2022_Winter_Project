@@ -8,10 +8,11 @@ public class CharacterManager : MonoBehaviour
 {
     static public CharacterManager charManager;
     public GameManager gameManager;
+    public SceneMoveManager sceneMoveManager;
 
     public enum CharacterName
     {
-        Gilbert,Walhwa,Patrick
+        Gilbert,Walwha,Patrick
     }
 
     //캐릭터들 스크립트를 가져올 수 있는 obj List
@@ -26,11 +27,18 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject canvas;
 
     //text관련 출력을 위한 text모음들
-    public Text charDetailText;
+    public Text strikerExplanationText;
     public Text characteristicText;
 
     Text DragCharText;
     Text TargetCharText;
+
+    public GameObject enemyExplation;
+    public Text enemyExplanationText;
+
+    public GameObject enemyImage;
+    public Image testImg; //원래 이미지
+    public Sprite enemy;//바뀌어질 이미지
 
     private void Awake()
     {
@@ -47,8 +55,16 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
+        sceneMoveManager = SceneMoveManager.sceneMoveManager;
+
         GameObject strikertext = StrikerCharacter.transform.Find("RoleText").gameObject;
         strikertext.GetComponent<Text>().text = "Striker";
+
+        //적에 대한 설명
+        enemyExplanationText.text = enemyExplation.GetComponent<Enemy1>().enemyDetail;
+        //적 이미지
+        enemy = enemyImage.GetComponent<Enemy1>().enemyImg;
+        testImg.sprite = enemy;
     }
 
     //매개변수로 제공받은 캐릭터의 세부사항을 아래에 출력합니다.
@@ -56,14 +72,16 @@ public class CharacterManager : MonoBehaviour
     {
         Character getObjInfo = getObj.GetComponent<Character>();
 
-        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
+        strikerExplanationText.text = StrikerCharacter.GetComponent<Character>().strikerExplanation;
 
         if (!highlightedChar)
         {
-            characteristicText.text = getObjInfo.Characteristic;
+            strikerExplanationText.text = getObjInfo.strikerExplanation;
+            characteristicText.text = getObjInfo.characteristic;
         }
         else
         {
+            strikerExplanationText.text = StrikerCharacter.GetComponent<Character>().strikerExplanation;
             characteristicText.text = null;
         }
     }
@@ -109,7 +127,7 @@ public class CharacterManager : MonoBehaviour
             {
                 StrikerCharacter = getObj;
             }
-
+            
             highlightedChar = null;
         }
         else
@@ -123,7 +141,6 @@ public class CharacterManager : MonoBehaviour
     //캐릭터가 이동했을 경우에 해당 캐릭터를 striker로 바꿔주기 위한 함수
     public void SetStriker(GameObject getDragCharacter, GameObject getTargetCharacter)
     {
-        charDetailText.text = StrikerCharacter.GetComponent<Character>().Character_Detail;
         DragCharText = getDragCharacter.GetComponentInChildren<Text>();
         TargetCharText = getTargetCharacter.GetComponentInChildren<Text>();
         

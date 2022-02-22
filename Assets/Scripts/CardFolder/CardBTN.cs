@@ -12,52 +12,60 @@ public class CardBTN : MonoBehaviour
         parentInfo = GetComponentInParent<CardInfo>();
     }
 
-//요로시꾸
-    //+��ư�� ������ �ش� ī���� ���� �̹����� ����ϰ� ī�� ť�� �����մϴ�.
+
+    //+BTN을 클릭하면 해당 이동 카드를 CardQueue에 추가합니다.
     public void PlusCard()
     {
-        // ť�� ������ �ε��� ��ȣ = ī�� ��ȣ. �ش� ��ȣ�� �̹��� �ҷ���.
+        //현재 사용되고 있는 이미지가 있는지 확인하고 cardQueue에 추가한다.
         if (parentInfo.order.Count == 0 || parentInfo.cardOrderImg.activeSelf == false)
         {
             parentInfo.cardOrderImg.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg.SetActive(true);// �̹��� ��Ÿ���� ��.
-            parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardOrderImg.SetActive(true);//첫 번쨰 이미지 사용
+
+            parentInfo.order.Add(parentInfo.cardObj);
+            //parentInfo.cardMgr.SetSelectedCard();
         }
 
         else if (parentInfo.order.Count == 1)
         {
             parentInfo.cardOrderImg2.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg2.SetActive(true);// �̹��� ��Ÿ���� ��.
-            parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardOrderImg2.SetActive(true);//두 번째 이미지 사용
+
+            parentInfo.order.Add(parentInfo.cardObj);
         }
 
         else
         {
             parentInfo.cardOrderImg3.GetComponent<Image>().sprite = parentInfo.cardMgr.sprites[parentInfo.order.Count];
-            parentInfo.cardOrderImg3.SetActive(true);// �̹��� ��Ÿ���� ��.
-            parentInfo.order.Add(parentInfo.cardObj); // �ش� ī�� ��ȣ ť�� ����
+            parentInfo.cardOrderImg3.SetActive(true);
+
+            parentInfo.order.Add(parentInfo.cardObj);
         }
-        //parentInfo.isSelected = true;
 
         Destroy(parentInfo.plusCardBTN);
         Destroy(parentInfo.minusCardBTN);
+
+        parentInfo.cardMgr.SetSelectedCard();
+
         parentInfo.cardMgr.isBTNOpened = false;
     }
 
-    //-��ư�� ������ �ش� ī���� ���� �̹����� �����ϰ� ��� ī�� ť���� �����մϴ�.
+    //해당 카드를 cardQueue에서 삭제한다.
     public void MinusCard()
     {
-        GameObject currImg; //���� ī�忡�� ��Ÿ���� ���� �̹����� ������ �����Դϴ�.
-        int currIdx;        //�����ϰ� ���� ī�尡 CardInfo�� order ����Ʈ���� �� ��° �ε����� ���� ī������ ������ �����Դϴ�.
+        GameObject currImg; //현재 사용되고 있는 이미지를 저장하는 변수
+        int currIdx;        //해당 카드가 cardQueue에서 어느 인덱스에 존재하는지를 저장하는 변수
 
         if (parentInfo.order.Count == 3)
         {
-            currImg = GetCurrImage();   //cardOrderImg,2,3 �� ������, ī���� ������ ��� �ִ� ������Ʈ�� ã�� ����ϴ�.
+            currImg = GetCurrImage();
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
-            if(IsImgOpenMore2())
-                currImg.SetActive(false); // �̹��� ����.
+            parentInfo.order.RemoveAt(currIdx); 
+            parentInfo.cardMgr.DeleteSelectedCard();
+
+            if (IsImgOpenMore2())
+                currImg.SetActive(false);
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -68,9 +76,11 @@ public class CardBTN : MonoBehaviour
             currImg = GetCurrImage();
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
+            parentInfo.order.RemoveAt(currIdx); 
+            parentInfo.cardMgr.DeleteSelectedCard();
+
             if (IsImgOpenMore2())
-                currImg.SetActive(false); // �̹��� ����.
+                currImg.SetActive(false); 
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -81,9 +91,11 @@ public class CardBTN : MonoBehaviour
             currImg = GetCurrImage();
             currIdx = GetCurrIdx();
 
-            parentInfo.order.RemoveAt(currIdx); //�ش� ī���� ��ȣ ť���� ����
+            parentInfo.order.RemoveAt(currIdx); 
+            parentInfo.cardMgr.DeleteSelectedCard();
+
             if (IsImgOpenMore2())
-                currImg.SetActive(false); // �̹��� ����.
+                currImg.SetActive(false); 
             else
                 parentInfo.cardOrderImg.SetActive(false);
             parentInfo.cardMgr.ChangeOrderImg();
@@ -94,8 +106,7 @@ public class CardBTN : MonoBehaviour
         parentInfo.cardMgr.isBTNOpened = false;
     }
 
-    //ī�� ���� �̹����� ���� ������Ʈ�� CardInfo���� ã�� ��ȯ�մϴ�.
-    //��ȯ�� �̹��� ������Ʈ�� CardOrderImg, CardOrderImg2, CardOrderImg3 �Դϴ�.
+    //현재 사용되고 있는 이미지가 무엇인지를 저장하는 함수입니다.
     GameObject GetCurrImage()
     {
         int imgIdx;
@@ -117,8 +128,7 @@ public class CardBTN : MonoBehaviour
         return null;
     }
 
-    //���� ��� ī�� ť���� Ŭ���� ī�尡 CardInfo�� order���� �� ��° �ε����� �������� ã�� �ش� �ε����� ����մϴ�.
-    //ex) 
+    //현재 부모카드가 CardQueue에서 어느 인덱스를 가지는지 리턴합니다.
     int GetCurrIdx()
     {
         int imgIdx;

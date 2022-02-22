@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class Card
+public class EnemyCardInfo: MonoBehaviour
 {
     public int cardNumber;
     public string cardName;

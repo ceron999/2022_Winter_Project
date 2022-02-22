@@ -120,6 +120,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
     - target: {fileID: 7412190407836568375, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
+      propertyPath: cardNumber
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412190407836568375, guid: 8ff31a2f95058c04c9fb359e321f1734, type: 3}
       propertyPath: isBTNOpened
       value: 1
       objectReference: {fileID: 0}

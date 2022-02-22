@@ -115,7 +115,9 @@ MonoBehaviour:
   charManager: {fileID: 0}
   itemBeingDragged: {fileID: 0}
   target: {fileID: 0}
-  charList: []
+  charList:
+  - {fileID: 2268005966082256598, guid: 6e9aa6fee7ce05441ae581557efffcdd, type: 3}
+  - {fileID: 450562787661307791, guid: 51e7adf854230a149952c8fff8debceb, type: 3}
 --- !u!1 &7191452305943962172
 GameObject:
   m_ObjectHideFlags: 0

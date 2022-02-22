@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSupporterCard: 0
-  cardNumber: 0
+  cardNumber: 108
   cardName: 
   damage: 0
   cardCooldown: 0
@@ -161,7 +161,6 @@ MonoBehaviour:
   cardOrderImg: {fileID: 0}
   cardOrderImg2: {fileID: 0}
   cardOrderImg3: {fileID: 0}
-  isBTNOpened: 0
   cardPlusBTNPrefab: {fileID: 6581718344256803049, guid: df394cc97b0ad9b4cb69c9363f5629a4, type: 3}
   cardMinusBTNPrefab: {fileID: 7227295881708846274, guid: 6f687cb195aa37145b714b5583ebe30e, type: 3}
   plusCardBTN: {fileID: 0}

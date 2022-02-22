@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1870631258600005248}
   m_Layer: 5
   m_Name: PatrickAttackBTN
-  m_TagString: Untagged
+  m_TagString: SkillCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,17 +381,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSupporterCard: 0
-  cardNumber: 0
+  cardNumber: 200
   cardName: 
   damage: 0
   cardCooldown: 0
   cardDetail: 
   cardMgr: {fileID: 0}
+  isMoveCard: 0
   isSelected: 0
   cardObj: {fileID: 7524049080501658532}
   cardOrder: {fileID: 8260790250621056937, guid: ba2f90fd6c751c741ad10ff9e4072f08, type: 3}
   cardOrderImg: {fileID: 0}
+  cardOrderImg2: {fileID: 0}
+  cardOrderImg3: {fileID: 0}
+  cardPlusBTNPrefab: {fileID: 0}
+  cardMinusBTNPrefab: {fileID: 0}
+  plusCardBTN: {fileID: 0}
+  minusCardBTN: {fileID: 0}
   cardOrderSpriter: {fileID: 0}
+  order: []
 --- !u!1 &7524049080538202566
 GameObject:
   m_ObjectHideFlags: 0

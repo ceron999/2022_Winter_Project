@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
-public class CardInfo : MonoBehaviour
+public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isSupporterCard;
     public int cardNumber;
@@ -35,6 +36,12 @@ public class CardInfo : MonoBehaviour
     public SpriteRenderer cardOrderSpriter;
     public List<GameObject> order;
 
+    //엄지민 추가
+    bool isClicked = false; //클릭판정
+    private float ClickedTime = 0;
+    private float MaxClickTime = 1; //롱클릭 판정
+
+
     private void Start()
     {
         if(cardMgr != null)
@@ -46,6 +53,39 @@ public class CardInfo : MonoBehaviour
         }
 
         InstantiateCardImg();
+    }
+
+    private void Update()
+    {
+        if (isClicked)
+        {
+            ClickedTime += Time.deltaTime;
+
+            if (ClickedTime >= MaxClickTime)
+            {
+                cardMgr.LongClick(cardObj);
+            }
+            if (Input.GetMouseButtonDown(0) && ClickedTime < MaxClickTime)
+            {
+                cardMgr.detailtextPanel.SetActive(false);
+            }
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        GameObject card = eventData.pointerPressRaycast.gameObject;
+        if (card.CompareTag("SkillCard"))
+        {
+            isClicked = true;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isClicked = false;
+        ClickedTime = 0;
+        this.GetComponent<Button>().interactable = true;
     }
 
     void InstantiateCardImg()
@@ -80,8 +120,11 @@ public class CardInfo : MonoBehaviour
         if (isSelected)
         {
             order.Remove(cardObj); //해당 카드의 번호 큐에서 삭제
+            cardMgr.DeleteSelectedCard();   //선택된 카드 리스트에서 해당 카드를 삭제합니다.
+
             cardOrderImg.SetActive(false); // 이미지 없앰.
             cardMgr.ChangeOrderImg();
+
             isSelected = false;
         }
         else
@@ -90,7 +133,10 @@ public class CardInfo : MonoBehaviour
             // 큐의 마지막 인덱스 번호 = 카드 번호. 해당 번호의 이미지 불러옴.
             cardOrderImg.GetComponent<Image>().sprite = cardMgr.sprites[order.Count];
             cardOrderImg.SetActive(true);// 이미지 나타나게 함.
+
             order.Add(cardObj); // 해당 카드 번호 큐에 삽입
+            cardMgr.SetSelectedCard();  //선택된 카드 리스트에 해당 카드를 추가합니다.
+
             isSelected = true;
         }
     }
