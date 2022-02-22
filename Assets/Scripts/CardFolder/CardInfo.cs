@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
-public class CardInfo : MonoBehaviour
+public class CardInfo : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isSupporterCard;
     public int cardNumber;
@@ -35,6 +36,12 @@ public class CardInfo : MonoBehaviour
     public SpriteRenderer cardOrderSpriter;
     public List<GameObject> order;
 
+    //엄지민 추가
+    bool isClicked = false; //클릭판정
+    private float ClickedTime = 0;
+    private float MaxClickTime = 1; //롱클릭 판정
+
+
     private void Start()
     {
         if(cardMgr != null)
@@ -46,6 +53,40 @@ public class CardInfo : MonoBehaviour
         }
 
         InstantiateCardImg();
+    }
+
+    private void Update()
+    {
+        if (isClicked)
+        {
+            Debug.Log(1);
+            ClickedTime += Time.deltaTime;
+
+            if (ClickedTime >= MaxClickTime)
+            {
+                cardMgr.LongClick(cardObj);
+            }
+            if (Input.GetMouseButtonDown(0) && ClickedTime < MaxClickTime)
+            {
+                cardMgr.detailtextPanel.SetActive(false);
+            }
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        GameObject card = eventData.pointerPressRaycast.gameObject;
+        if (card.CompareTag("SkillCard"))
+        {
+            isClicked = true;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isClicked = false;
+        ClickedTime = 0;
+        this.GetComponent<Button>().interactable = true;
     }
 
     void InstantiateCardImg()

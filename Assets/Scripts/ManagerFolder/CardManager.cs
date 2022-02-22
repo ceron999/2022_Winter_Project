@@ -32,8 +32,11 @@ public class CardManager : MonoBehaviour
     bool isSecondCardPrint = false;
     bool isThirdCardPrint = false;
 
+    //카드 디테일을 출력하기 위한 변수
+    public GameObject detailtextPanel;
+    public Text skillDetailText;
     //220216/정윤석/카드 프리팹 변경 이후 사용할 변수들
-    
+
 
     void Awake()
     {
@@ -340,5 +343,13 @@ public class CardManager : MonoBehaviour
             objNameBulider.Clear();
         }
         return -1;
+    }
+
+    //길게 클릭할 경우 해당 카드의 디테일을 출력합니다.
+    public void LongClick(GameObject clickCard)
+    {
+        skillDetailText.text = "damage: " + clickCard.GetComponent<CardInfo>().damage +
+                                "\ncardDetail: " + clickCard.GetComponent<CardInfo>().cardDetail;
+        detailtextPanel.SetActive(true);
     }
 }
