@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneMoveManager : MonoBehaviour
 {
-    //Á¶°ÇºÎ ÀÌµ¿À» ´ã´çÇÑ ¾À ÀÌµ¿ ¸Å´ÏÀúÀÔ´Ï´Ù.
+    //ì¡°ê±´ë¶€ ì´ë™ì„ ë‹´ë‹¹í•œ ì”¬ ì´ë™ ë§¤ë‹ˆì €ì…ë‹ˆë‹¤.
     public static SceneMoveManager sceneMoveManager;
     public CardManager cardManager;
 
-    //cardManager.cardQueue.Count == 3ÀÌ¸é ¹èÆ²¹öÆ° È°¼ºÈ­¸¦ ¸¸µé±â À§ÇÑ º¯¼ö
+    //cardManager.cardQueue.Count == 3ì´ë©´ ë°°í‹€ë²„íŠ¼ í™œì„±í™”ë¥¼ ë§Œë“¤ê¸° ìœ„í•œ ë³€ìˆ˜
     [SerializeField] GameObject battleStartBTN;
     Button battleStartBTNComponent;
 
     private void Awake()
     {
-        //¸Å´ÏÀú°¡ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é ÇöÀç ¿ÀºêÁ§Æ®¸¦ ½Ì±ÛÅæÀ¸·Î »ı¼ºÇÕ´Ï´Ù.
+        //ë§¤ë‹ˆì €ê°€ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ í˜„ì¬ ì˜¤ë¸Œì íŠ¸ë¥¼ ì‹±ê¸€í†¤ìœ¼ë¡œ ìƒì„±í•©ë‹ˆë‹¤.
         if (sceneMoveManager == null)
         {
             sceneMoveManager = this;
