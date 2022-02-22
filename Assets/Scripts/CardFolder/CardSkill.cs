@@ -18,30 +18,35 @@ public class CardSkill : MonoBehaviour
     ///15 16 17 18 19
     ///20 21 22 23 24
 
-    public List<Vector2> rangeVecter;
+    public List<Vector2> rangeVector;
+    //List<int> getRangeList;
 
     private void Start()
     {
-        
+        SetRangeVector();
     }
 
-    void SetRangeVecter()
+    void SetRangeVector()
     {
-        
-    }
+        Vector2 temp = new Vector2(-4, 2);
+        Vector2 xPosUp = new Vector2(2, 0);
+        Vector2 yPosDown = new Vector2(0, -1);
 
-    void SetRangeIdx()
-    {
-        //gilbert Range
-        
-        //walwha Range
-
-        //patrick Range
+        rangeVector.Add(temp);
+        for(int i=1; i<25;i++)
+        {
+            if (i % 5 != 0)
+                rangeVector.Add(temp + (xPosUp * (i%5)));
+            else
+            {
+                temp = temp + yPosDown;
+                rangeVector.Add(temp);
+            }
+        }
     }
 
     public void Skill()
     {
-
     }
 
     public void Move()

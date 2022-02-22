@@ -26,6 +26,7 @@ public class CardManager : MonoBehaviour
 
     GameObject saveCard;    //플레이어가 선택한 카드를 Instantiate할 때 잠깐 담는 변수
     CardInfo saveCardInfo;  //Instantiate한 카드의 스크립트 정보를 받아올 때 사용할 변수
+    
     public List<GameObject> saveCards;
     public List<int> saveCardsIdx;
 

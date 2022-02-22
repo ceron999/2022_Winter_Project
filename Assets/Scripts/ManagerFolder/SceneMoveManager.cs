@@ -24,7 +24,6 @@ public class SceneMoveManager : MonoBehaviour
         }
         else
         {
-            if (battleStartBTN == null) Debug.Log(1);
             Destroy(gameObject);
         }
     }
