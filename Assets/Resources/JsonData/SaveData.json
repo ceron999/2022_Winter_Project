@@ -1,0 +1,12 @@
+{
+    "cardNumber": 1001,
+    "cardName": "name",
+    "damage": 1,
+    "cardCooldown": 1,
+    "cardDetail": "asdf",
+    "damageRange": [
+        1,
+        2,
+        3
+    ]
+}

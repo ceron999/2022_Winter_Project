@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyCardInfo: MonoBehaviour
 {
+    
+
     public int cardNumber;
     public string cardName;
     public int damage;

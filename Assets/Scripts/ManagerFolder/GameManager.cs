@@ -60,10 +60,12 @@ public class GameManager : MonoBehaviour
         SetBattleCardOrder();
         SetCardsOrder();
         InstanciateCards();
+    }
 
-        //턴 끝나고
-        cardMgr.saveCards.Clear();
-        cardMgr.saveCardsIdx.Clear();
+    private void Update()
+    {
+        //if (player.transform.position.y == 0)
+        //    cardSkill.Move(108);
     }
 
     //내가 선택한 카드를 playerCards 리스트에 새로 저장한다.
