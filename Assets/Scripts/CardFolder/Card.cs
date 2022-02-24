@@ -11,4 +11,5 @@ public class Card
     public int damage;
     public int cardCooldown;
     public string cardDetail;
+    public int[] damageRange;
 }

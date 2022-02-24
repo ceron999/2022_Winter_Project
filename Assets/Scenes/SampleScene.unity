@@ -457,7 +457,9 @@ MonoBehaviour:
   fifthCardPos: {fileID: 0}
   sixthCardPos: {fileID: 0}
   player: {fileID: 0}
+  playerInfo: {fileID: 0}
   enemy: {fileID: 0}
+  enemy1Info: {fileID: 0}
   Turn: 1
   isTurnEnd: 0
   isVictory: 0
@@ -577,6 +579,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6918560828181261249, guid: cf001bef482b02f4e9d93afa2f9e2945, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918560828181261249, guid: cf001bef482b02f4e9d93afa2f9e2945, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.215027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571494970920446957, guid: cf001bef482b02f4e9d93afa2f9e2945, type: 3}
+      propertyPath: jsonManager
+      value: 
+      objectReference: {fileID: 494296870}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf001bef482b02f4e9d93afa2f9e2945, type: 3}
 --- !u!1001 &7914121319041207358
@@ -674,5 +688,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9179929088275533882, guid: 8b582df09c5723948b1f8322c86c9428, type: 3}
+      propertyPath: jsonManager
+      value: 
+      objectReference: {fileID: 494296870}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b582df09c5723948b1f8322c86c9428, type: 3}

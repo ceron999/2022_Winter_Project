@@ -17,6 +17,7 @@ public class SettingManager : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
 
+    public GameObject cardSkillObj;
 
     private void Start()
     {
@@ -34,5 +35,6 @@ public class SettingManager : MonoBehaviour
         gameManager.enemy = enemy;
         gameManager.playerInfo = player.GetComponent<Character>();
         gameManager.enemy1Info = player.GetComponent<Enemy1>();
+        gameManager.cardSkill = cardSkillObj.GetComponent<CardSkill>();
     }
 }

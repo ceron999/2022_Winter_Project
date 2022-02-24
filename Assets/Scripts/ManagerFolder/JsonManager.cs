@@ -6,7 +6,11 @@ using System.Text;
 
 public class JsonManager : MonoBehaviour
 {
-    Card jsonCard;
+    private void Start()
+    {
+        
+        
+    }
 
     public void SaveJson(Card cardData)
     {
@@ -50,5 +54,27 @@ public class JsonManager : MonoBehaviour
         byte[] bytes = Encoding.UTF8.GetBytes(jsonText);
         fileStream.Write(bytes, 0, bytes.Length);
         fileStream.Close();
+    }
+
+    public T ResourceDataLoad<T>(string name)
+    {
+        //이제 우리가 이전에 저장했던 데이터를 꺼내야한다
+        //만약 저장한 데이터가 없다면? 이걸 실행 안하고 튜토리얼을 실행하면 그만이다. 그 작업은 씬로더에서 해준다
+        T gameData;
+        string directory = "JsonData/";
+
+        string appender1 = name;
+        //        string appender2 = ".json";
+        StringBuilder builder = new StringBuilder(directory);
+        builder.Append(appender1);
+        //      builder.Append(appender2);
+        //위까지는 세이브랑 똑같다
+        //파일스트림을 만들어준다. 파일모드를 open으로 해서 열어준다. 다 구글링이다
+        TextAsset jsonString = Resources.Load<TextAsset>(builder.ToString());
+        Debug.Log(builder);
+        gameData = JsonUtility.FromJson<T>(jsonString.ToString());
+
+        return gameData;
+        //이 정보를 게임매니저나, 로딩으로 넘겨주는 것이당
     }
 }
