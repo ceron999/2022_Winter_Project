@@ -7,12 +7,10 @@ using UnityEngine.EventSystems;
 public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public CharacterManager charManager;
-
-    //µå·¡±×ÇÒ ¶§ ½ÃÀÛ, ³¡ ¿ÀºêÁ§Æ®¸¦ ÀúÀåÇÏ´Â º¯¼öµé
     public GameObject itemBeingDragged;
     Vector3 startPosition;
     public GameObject target;
-    bool isDrag = false;    //ÇöÀç µå·¡±×°¡ ³¡³ªÁö ¾Ê¾Ò´Ù¸é Å¬¸¯ ÀÌº¥Æ®°¡ ÀÛµ¿µÇÁö ¾Êµµ·Ï ÇÏ´Â º¯¼ö
+    bool isDrag = false;
 
     public List<GameObject> charList = new List<GameObject>();
 
@@ -29,16 +27,16 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
             if (clickCard.CompareTag("CharCard"))
             {
-                //È­¸é¿¡ Ä³¸¯ Á¤º¸ Ãâ·Â
+                //È­ï¿½é¿¡ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
                 charManager.PrintCharText(clickCard);
 
-                //Å¬¸¯ÇÑ Ä³¸¯ÅÍ °­Á¶
+                //Å¬ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 charManager.HighlightCharacter(clickCard);
             }
         }
     }
 
-    //ÀÌ ½ºÅ©¸³Æ®°¡ ºÙÀº ¿ÀºêÁ§Æ®¸¦ ¸¶¿ì½º µå·¡±×¸¦ ½ÃÀÛÇßÀ» ¶§ È£Ãâ
+    //ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½å·¡ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDrag = true;
@@ -46,12 +44,12 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         startPosition = transform.position;
     }
 
-    //¸¶¿ì½º µå·¡±× ÁßÀÎ µ¿¾È °è¼Ó È£Ãâ
+    //ï¿½ï¿½ï¿½ì½º ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È£ï¿½ï¿½
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
         
-        //°¡±î¿î ¿ÀºêÁ§Æ® targetÀ¸·Î Á¤ÇÏ±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® targetï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
         if (Vector3.Distance(itemBeingDragged.transform.position, charList[0].transform.position)
             < Vector3.Distance(itemBeingDragged.transform.position, charList[1].transform.position))
         {
@@ -62,22 +60,22 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     }
 
-    //¸¶¿ì½º µå·¡±× ÇÏ´Â °ÍÀ» ³¡³ÂÀ» ¶§ È£Ãâ
+    //ï¿½ï¿½ï¿½ì½º ï¿½å·¡ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½
     public void OnEndDrag(PointerEventData eventData)
     {
         Vector3 getposition = startPosition;
 
-        //ÇöÀç µå·¡±×ÇÑ °Í°ú target °Å¸®°¡ 100ÀÌÇÏ¸é swap
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½å·¡ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ target ï¿½Å¸ï¿½ï¿½ï¿½ 100ï¿½ï¿½ï¿½Ï¸ï¿½ swap
         if (Vector3.Distance(itemBeingDragged.transform.position, target.transform.position) <= 100)
         {
             itemBeingDragged.transform.position = target.transform.position;
             target.transform.position = getposition;
 
-            //½ºÆ®¶óÀÌÄ¿ Ä«µå À§Ä¡¿¡ »õ·Î¿î Ä³¸¯ÅÍ Ä«µå°¡ µé¾î¿ÔÀ¸¹Ç·Î ÇØ´ç Ä³¸¯ÅÍ¸¦ ½ºÆ®¶óÀÌÄ¿·Î ÁöÁ¤ÇÕ´Ï´Ù.
+            //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½Ä¿ Ä«ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             charManager.SetStriker(itemBeingDragged, target);
             charManager.SaveStriker();
         }
-        //¾Æ´Ï¸é ¿ø·¡ À§Ä¡·Î
+        //ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
         else
         {
             transform.position = startPosition;

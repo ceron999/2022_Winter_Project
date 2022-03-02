@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Character : MonoBehaviour //, IDropHandler
 {
-    //ㄹㅇ
-    // ĳ���� ������
     public bool isStriker;
     public bool isSupporter;
 
@@ -17,7 +15,4 @@ public class Character : MonoBehaviour //, IDropHandler
 
     public string strikerExplanation;
     public string characteristic;
-    
-    //ī�� ������
-
 }
