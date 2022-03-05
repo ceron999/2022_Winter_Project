@@ -8,11 +8,11 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     public CharacterManager charManager;
 
-    //µå·¡±×ÇÒ ¶§ ½ÃÀÛ, ³¡ ¿ÀºêÁ§Æ®¸¦ ÀúÀåÇÏ´Â º¯¼öµé
+    //ë“œë˜ê·¸í•  ë•Œ ì‹œì‘, ë ì˜¤ë¸Œì íŠ¸ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ë“¤
     public GameObject itemBeingDragged;
     Vector3 startPosition;
     public GameObject target;
-    bool isDrag = false;    //ÇöÀç µå·¡±×°¡ ³¡³ªÁö ¾Ê¾Ò´Ù¸é Å¬¸¯ ÀÌº¥Æ®°¡ ÀÛµ¿µÇÁö ¾Êµµ·Ï ÇÏ´Â º¯¼ö
+    bool isDrag = false;    //í˜„ì¬ ë“œë˜ê·¸ê°€ ëë‚˜ì§€ ì•Šì•˜ë‹¤ë©´ í´ë¦­ ì´ë²¤íŠ¸ê°€ ì‘ë™ë˜ì§€ ì•Šë„ë¡ í•˜ëŠ” ë³€ìˆ˜
 
     public List<GameObject> charList = new List<GameObject>();
 
@@ -29,16 +29,16 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
             if (clickCard.CompareTag("CharCard"))
             {
-                //È­¸é¿¡ Ä³¸¯ Á¤º¸ Ãâ·Â
+                //í™”ë©´ì— ìºë¦­ ì •ë³´ ì¶œë ¥
                 charManager.PrintCharText(clickCard);
 
-                //Å¬¸¯ÇÑ Ä³¸¯ÅÍ °­Á¶
+                //í´ë¦­í•œ ìºë¦­í„° ê°•ì¡°
                 charManager.HighlightCharacter(clickCard);
             }
         }
     }
 
-    //ÀÌ ½ºÅ©¸³Æ®°¡ ºÙÀº ¿ÀºêÁ§Æ®¸¦ ¸¶¿ì½º µå·¡±×¸¦ ½ÃÀÛÇßÀ» ¶§ È£Ãâ
+    //ì´ ìŠ¤í¬ë¦½íŠ¸ê°€ ë¶™ì€ ì˜¤ë¸Œì íŠ¸ë¥¼ ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ë¥¼ ì‹œì‘í–ˆì„ ë•Œ í˜¸ì¶œ
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDrag = true;
@@ -46,12 +46,12 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         startPosition = transform.position;
     }
 
-    //¸¶¿ì½º µå·¡±× ÁßÀÎ µ¿¾È °è¼Ó È£Ãâ
+    //ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ ì¤‘ì¸ ë™ì•ˆ ê³„ì† í˜¸ì¶œ
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
         
-        //°¡±î¿î ¿ÀºêÁ§Æ® targetÀ¸·Î Á¤ÇÏ±â
+        //ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ targetìœ¼ë¡œ ì •í•˜ê¸°
         if (Vector3.Distance(itemBeingDragged.transform.position, charList[0].transform.position)
             < Vector3.Distance(itemBeingDragged.transform.position, charList[1].transform.position))
         {
@@ -62,22 +62,22 @@ public class CharEventTrigger : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     }
 
-    //¸¶¿ì½º µå·¡±× ÇÏ´Â °ÍÀ» ³¡³ÂÀ» ¶§ È£Ãâ
+    //ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ í•˜ëŠ” ê²ƒì„ ëëƒˆì„ ë•Œ í˜¸ì¶œ
     public void OnEndDrag(PointerEventData eventData)
     {
         Vector3 getposition = startPosition;
 
-        //ÇöÀç µå·¡±×ÇÑ °Í°ú target °Å¸®°¡ 100ÀÌÇÏ¸é swap
+        //í˜„ì¬ ë“œë˜ê·¸í•œ ê²ƒê³¼ target ê±°ë¦¬ê°€ 100ì´í•˜ë©´ swap
         if (Vector3.Distance(itemBeingDragged.transform.position, target.transform.position) <= 100)
         {
             itemBeingDragged.transform.position = target.transform.position;
             target.transform.position = getposition;
 
-            //½ºÆ®¶óÀÌÄ¿ Ä«µå À§Ä¡¿¡ »õ·Î¿î Ä³¸¯ÅÍ Ä«µå°¡ µé¾î¿ÔÀ¸¹Ç·Î ÇØ´ç Ä³¸¯ÅÍ¸¦ ½ºÆ®¶óÀÌÄ¿·Î ÁöÁ¤ÇÕ´Ï´Ù.
+            //ìŠ¤íŠ¸ë¼ì´ì»¤ ì¹´ë“œ ìœ„ì¹˜ì— ìƒˆë¡œìš´ ìºë¦­í„° ì¹´ë“œê°€ ë“¤ì–´ì™”ìœ¼ë¯€ë¡œ í•´ë‹¹ ìºë¦­í„°ë¥¼ ìŠ¤íŠ¸ë¼ì´ì»¤ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
             charManager.SetStriker(itemBeingDragged, target);
             charManager.SaveStriker();
         }
-        //¾Æ´Ï¸é ¿ø·¡ À§Ä¡·Î
+        //ì•„ë‹ˆë©´ ì›ë˜ ìœ„ì¹˜ë¡œ
         else
         {
             transform.position = startPosition;

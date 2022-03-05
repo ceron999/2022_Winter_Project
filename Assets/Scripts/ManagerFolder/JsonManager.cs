@@ -17,9 +17,9 @@ public class JsonManager : MonoBehaviour
         string jsonText;
 
 
-        //¾Èµå·ÎÀÌµå¿¡¼­ÀÇ ÀúÀå À§Ä¡¸¦ ´Ù¸£°Ô ÇØÁÖ¾î¾ß ÇÑ´Ù
-        //Application.dataPath¸¦ ÀÌ¿ëÇÏ¸é ¾îµğ·Î °¡´ÂÁö´Â ±¸±Û¸µ ÇØº¸±æ ¹Ù¶õ´Ù
-        //¾Èµå·ÎÀÌµåÀÇ °æ¿ì¿¡´Â µ¥ÀÌÅÍÁ¶ÀÛÀ» ¸·±âÀ§ÇØ 2Áøµ¥ÀÌÅÍ·Î º¯È¯À» ÇØ¾ßÇÑ´Ù
+        //ì•ˆë“œë¡œì´ë“œì—ì„œì˜ ì €ì¥ ìœ„ì¹˜ë¥¼ ë‹¤ë¥´ê²Œ í•´ì£¼ì–´ì•¼ í•œë‹¤
+        //Application.dataPathë¥¼ ì´ìš©í•˜ë©´ ì–´ë””ë¡œ ê°€ëŠ”ì§€ëŠ” êµ¬ê¸€ë§ í•´ë³´ê¸¸ ë°”ë€ë‹¤
+        //ì•ˆë“œë¡œì´ë“œì˜ ê²½ìš°ì—ëŠ” ë°ì´í„°ì¡°ì‘ì„ ë§‰ê¸°ìœ„í•´ 2ì§„ë°ì´í„°ë¡œ ë³€í™˜ì„ í•´ì•¼í•œë‹¤
 
         string savePath = Application.dataPath;
         string appender = "/userData/";
@@ -30,7 +30,7 @@ public class JsonManager : MonoBehaviour
 
 #endif
 #if UNITY_ANDROID
-        //ÀÌ°Å³ªÁß¿¡ »ì·Á¾ßµÊ
+        //ì´ê±°ë‚˜ì¤‘ì— ì‚´ë ¤ì•¼ë¨
         savePath = Application.persistentDataPath;
         Debug.Log(savePath);
 #endif
@@ -38,7 +38,7 @@ public class JsonManager : MonoBehaviour
         builder.Append(appender);
         if (!Directory.Exists(builder.ToString()))
         {
-            //µğ·ºÅä¸®°¡ ¾ø´Â°æ¿ì ¸¸µé¾îÁØ´Ù
+            //ë””ë ‰í† ë¦¬ê°€ ì—†ëŠ”ê²½ìš° ë§Œë“¤ì–´ì¤€ë‹¤
             Directory.CreateDirectory(builder.ToString());
 
         }
@@ -46,10 +46,10 @@ public class JsonManager : MonoBehaviour
         builder.Append(dotJson);
 
         jsonText = JsonUtility.ToJson(cardData, true);
-        //ÀÌ·¯¸éÀº ÀÏ´Ü µ¥ÀÌÅÍ°¡ ÅØ½ºÆ®·Î º¯È¯ÀÌ µÈ´Ù
-        //jsonUtility¸¦ ÀÌ¿ëÇÏ¿© dataÀÎ WholeGameData¸¦ jsonÇü½ÄÀÇ text·Î ¹Ù²Ù¾îÁØ´Ù
+        //ì´ëŸ¬ë©´ì€ ì¼ë‹¨ ë°ì´í„°ê°€ í…ìŠ¤íŠ¸ë¡œ ë³€í™˜ì´ ëœë‹¤
+        //jsonUtilityë¥¼ ì´ìš©í•˜ì—¬ dataì¸ WholeGameDataë¥¼ jsoní˜•ì‹ì˜ textë¡œ ë°”ê¾¸ì–´ì¤€ë‹¤
 
-        //ÆÄÀÏ½ºÆ®¸²À» ÀÌ·¸°Ô ÁöÁ¤ÇØÁÖ°í ÀúÀåÇØÁÖ¸éµÈ´ç ²ı
+        //íŒŒì¼ìŠ¤íŠ¸ë¦¼ì„ ì´ë ‡ê²Œ ì§€ì •í•´ì£¼ê³  ì €ì¥í•´ì£¼ë©´ëœë‹¹ ë—
         FileStream fileStream = new FileStream(builder.ToString(), FileMode.Create);
         byte[] bytes = Encoding.UTF8.GetBytes(jsonText);
         fileStream.Write(bytes, 0, bytes.Length);
@@ -58,8 +58,8 @@ public class JsonManager : MonoBehaviour
 
     public T ResourceDataLoad<T>(string name)
     {
-        //ÀÌÁ¦ ¿ì¸®°¡ ÀÌÀü¿¡ ÀúÀåÇß´ø µ¥ÀÌÅÍ¸¦ ²¨³»¾ßÇÑ´Ù
-        //¸¸¾à ÀúÀåÇÑ µ¥ÀÌÅÍ°¡ ¾ø´Ù¸é? ÀÌ°É ½ÇÇà ¾ÈÇÏ°í Æ©Åä¸®¾óÀ» ½ÇÇàÇÏ¸é ±×¸¸ÀÌ´Ù. ±× ÀÛ¾÷Àº ¾À·Î´õ¿¡¼­ ÇØÁØ´Ù
+        //ì´ì œ ìš°ë¦¬ê°€ ì´ì „ì— ì €ì¥í–ˆë˜ ë°ì´í„°ë¥¼ êº¼ë‚´ì•¼í•œë‹¤
+        //ë§Œì•½ ì €ì¥í•œ ë°ì´í„°ê°€ ì—†ë‹¤ë©´? ì´ê±¸ ì‹¤í–‰ ì•ˆí•˜ê³  íŠœí† ë¦¬ì–¼ì„ ì‹¤í–‰í•˜ë©´ ê·¸ë§Œì´ë‹¤. ê·¸ ì‘ì—…ì€ ì”¬ë¡œë”ì—ì„œ í•´ì¤€ë‹¤
         T gameData;
         string directory = "JsonData/";
 
@@ -68,13 +68,13 @@ public class JsonManager : MonoBehaviour
         StringBuilder builder = new StringBuilder(directory);
         builder.Append(appender1);
         //      builder.Append(appender2);
-        //À§±îÁö´Â ¼¼ÀÌºê¶û ¶È°°´Ù
-        //ÆÄÀÏ½ºÆ®¸²À» ¸¸µé¾îÁØ´Ù. ÆÄÀÏ¸ğµå¸¦ openÀ¸·Î ÇØ¼­ ¿­¾îÁØ´Ù. ´Ù ±¸±Û¸µÀÌ´Ù
+        //ìœ„ê¹Œì§€ëŠ” ì„¸ì´ë¸Œë‘ ë˜‘ê°™ë‹¤
+        //íŒŒì¼ìŠ¤íŠ¸ë¦¼ì„ ë§Œë“¤ì–´ì¤€ë‹¤. íŒŒì¼ëª¨ë“œë¥¼ openìœ¼ë¡œ í•´ì„œ ì—´ì–´ì¤€ë‹¤. ë‹¤ êµ¬ê¸€ë§ì´ë‹¤
         TextAsset jsonString = Resources.Load<TextAsset>(builder.ToString());
         Debug.Log(builder);
         gameData = JsonUtility.FromJson<T>(jsonString.ToString());
 
         return gameData;
-        //ÀÌ Á¤º¸¸¦ °ÔÀÓ¸Å´ÏÀú³ª, ·ÎµùÀ¸·Î ³Ñ°ÜÁÖ´Â °ÍÀÌ´ç
+        //ì´ ì •ë³´ë¥¼ ê²Œì„ë§¤ë‹ˆì €ë‚˜, ë¡œë”©ìœ¼ë¡œ ë„˜ê²¨ì£¼ëŠ” ê²ƒì´ë‹¹
     }
 }
