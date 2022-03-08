@@ -9,7 +9,7 @@ public class DataBaseManager : MonoBehaviour
 
     [SerializeField] string csvFileName;
 
-    Dictionary<int,Dialogue> dialogueDictionary = new Dictionary<int,Dialogue>();
+    public Dictionary<int,Dialogue> dialogueDictionary = new Dictionary<int,Dialogue>();
     public static bool isFinished = false;
 
     private void Awake()
@@ -36,12 +36,6 @@ public class DataBaseManager : MonoBehaviour
             dialogueDictionary.Add(i + 1, dialogues[i]);
         }
         isFinished = true;
-    }
-
-
-    void Update()
-    {
-        
     }
 
     public Dialogue[] GetDialogues(int startNum,int endNum)

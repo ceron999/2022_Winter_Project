@@ -24,7 +24,7 @@ public class DialogueParser : MonoBehaviour
         for (int i = 1; i < data.Length;)
         {
             string[] row = data[i].Split(new char[] { ',' });   //현재 line을 ,단위로 잘라냄
-            Debug.Log(csvFilesNameBuilder.ToString());
+            
             dialogue.name = row[1];
             List<string> contextList = new List<string>();
             do
