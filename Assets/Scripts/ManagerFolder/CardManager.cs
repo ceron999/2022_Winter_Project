@@ -13,7 +13,6 @@ public class CardManager : MonoBehaviour
 
     public List<GameObject> cardQueue;  //스킬 및 이동카드 3개 저장용도 입니다.
     public Sprite[] sprites;            //카드 순서를 표현해줄 이미지를 받아옵니다.
-
     public GameObject scrollContent;        //카드를 뿌릴 스크롤 바의 Content 객체
     public List<GameObject> gilbertCards;   //instantiate하기 전용 프리팹 리스트
     public List<GameObject> walwhaCards;

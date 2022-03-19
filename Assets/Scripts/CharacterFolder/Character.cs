@@ -12,7 +12,6 @@ public class Character : MonoBehaviour //, IDropHandler
     public string Character_Name;
     public int Health;
     public int Speed;
-
     public string strikerExplanation;
     public string characteristic;
 }

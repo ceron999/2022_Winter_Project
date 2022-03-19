@@ -20,7 +20,8 @@ public class Skill
     public Direction dir = 0;
     public int dmg = 0;
     public int heal = 0;
-    public int cost = 0;
+    public int cooldown = 0;
+    public bool isCool = false; 
     public List<Pair> range; // 공격 범위
 }
 public class PatricSkill : MonoBehaviour
@@ -44,11 +45,10 @@ public class PatricSkill : MonoBehaviour
             gameObject.SendMessage($"SetSkill{i}({i})");
         }
     }
-
     void SetSkill1(int i)
     {
         skills[i].dmg = 20;
-        skills[i].cost = 1;
+        skills[i].cooldown = 1;
         skills[i].range.Add(new Pair(1, 1)); // 2,2가 본인위치 
         skills[i].range.Add(new Pair(3, 1));
         skills[i].range.Add(new Pair(2, 2));
@@ -57,15 +57,30 @@ public class PatricSkill : MonoBehaviour
     }
     void SetSkill2(int i)
     {
-
+        skills[i].dmg = 25;
+        skills[i].cooldown = 3;
+        skills[i].range.Add(new Pair(1,1));
+        skills[i].range.Add(new Pair(2,1));
+        skills[i].range.Add(new Pair(3,1));
+        skills[i].range.Add(new Pair(2,2));
+        skills[i].range.Add(new Pair(3,2));
+        skills[i].range.Add(new Pair(1,3));
+        skills[i].range.Add(new Pair(2,3));
+        skills[i].range.Add(new Pair(3,3));
     }
     void SetSkill3(int i)
     {
-
+        skills[i].dmg = 20;
+        skills[i].cooldown = 1;
+        skills[i].range.Add(new Pair(1,1));
+        skills[i].range.Add(new Pair(1,2));
+        skills[i].range.Add(new Pair(3,2));
+        skills[i].range.Add(new Pair(1,3));
+        skills[i].range.Add(new Pair(2,3));
     }
     void SetSkill4(int i)
     {
-
+        
     }
     void SetSkill5(int i)
     {
@@ -89,82 +104,56 @@ public class PatricSkill : MonoBehaviour
         {
             for (int j = 0; j < skills[i].range.Count; j++)// 범위 개수만큼 해당
             {
-                enemy.enemyPosArr[skills[i].range[j].a, skills[i].range[j].b].attackCount++;
+                enemy.posArr[skills[i].range[j].a, skills[i].range[j].b].attackCount++;
             }
         }
-        // //Skill1
-        // enemy.enemyPosArr[1, 1].attackCount++;
-        // enemy.enemyPosArr[3, 1].attackCount++;
-        // enemy.enemyPosArr[1, 3].attackCount++;
-        // enemy.enemyPosArr[3, 3].attackCount++;
-        // enemy.enemyPosArr[2, 2].attackCount++;
-        // //Skill2
-        // enemy.enemyPosArr[1, 1].attackCount++;
-        // enemy.enemyPosArr[1, 2].attackCount++;
-        // enemy.enemyPosArr[1, 3].attackCount++;
-        // enemy.enemyPosArr[2, 1].attackCount++;
-        // enemy.enemyPosArr[2, 3].attackCount++;
-        // enemy.enemyPosArr[3, 1].attackCount++;
-        // enemy.enemyPosArr[3, 2].attackCount++;
-        // enemy.enemyPosArr[3, 1].attackCount++;
-        // //Skill3
-        // enemy.enemyPosArr[1, 1].attackCount++;
-        // enemy.enemyPosArr[1, 2].attackCount++;
-        // enemy.enemyPosArr[2, 3].attackCount++;
-        // enemy.enemyPosArr[3, 1].attackCount++;
-        // enemy.enemyPosArr[3, 2].attackCount++;
-        // //Skill4
-        // enemy.enemyPosArr[2, 1].attackCount++;
-        // //Skill5
-        // enemy.enemyPosArr[2, 2].attackCount++;
-        // enemy.enemyPosArr[2, 3].attackCount++;
-        // enemy.enemyPosArr[3, 3].attackCount++;
-        // //Skill6
-        // enemy.enemyPosArr[1, 1].attackCount++;
-        // enemy.enemyPosArr[2, 3].attackCount++;
-        // enemy.enemyPosArr[3, 1].attackCount++;
-        // //Skill7
-        // enemy.enemyPosArr[0, 0].attackCount++;
-        // enemy.enemyPosArr[0, 3].attackCount++;
-        // enemy.enemyPosArr[1, 1].attackCount++;
-        // enemy.enemyPosArr[1, 3].attackCount++;
-        // //Skill8
-        // enemy.enemyPosArr[1, 2].attackCount++;
-        // enemy.enemyPosArr[1, 4].attackCount++;
-        // enemy.enemyPosArr[2, 2].attackCount++;
-        // enemy.enemyPosArr[3, 2].attackCount++;
-        // enemy.enemyPosArr[3, 4].attackCount++;
-
     }
-    void Move(int Direction)
+    void Move(Direction dir)
     {
         Vector3 curPos = enemy.transform.position;
-        switch(Direction)
+        Vector3 tmpPos = new Vector3(0, 0, 0);
+        switch(dir)
         {
-            case 1:
-                enemy.transform.position = new Vector3(curPos.x + enemy.enemyPosArr[1, 2].xPos, curPos.y, curPos.z);
+            case Direction.left:
+                tmpPos = new Vector3(curPos.x + enemy.posArr[1, 2].xPos, curPos.y, curPos.z);
                 break;
-            case 2:
-            enemy.transform.position = new Vector3(curPos.x + enemy.enemyPosArr[3, 2].xPos, curPos.y, curPos.z);
+            case Direction.right:
+                tmpPos = new Vector3(curPos.x + enemy.posArr[3, 2].xPos, curPos.y, curPos.z);
                 break;
-            case 3:
-            enemy.transform.position = new Vector3(curPos.x, curPos.y + enemy.enemyPosArr[2, 1].yPos, curPos.z);
+            case Direction.up:
+                tmpPos = new Vector3(curPos.x, curPos.y + enemy.posArr[2, 1].yPos, curPos.z);
                 break;
-            case 4:
-            enemy.transform.position = new Vector3(curPos.x, curPos.y + enemy.enemyPosArr[2, 3].yPos, curPos.z);
+            case Direction.down:
+                tmpPos = new Vector3(curPos.x, curPos.y + enemy.posArr[2, 3].yPos, curPos.z);
                 break;
             default:
                 break;
         }
+        //예외처리. 맵 밖으로 나가는 포지션일 경우 실행하지않음
+        if(tmpPos.x < -5.0f || tmpPos.x > 5.0f || tmpPos.y < -2.0f || tmpPos.y > 2.0f) return;
+        else enemy.transform.position = tmpPos;
     }
-    // void ActiveSkill(Skill skillnum)
-    // {
-    //     player.hp += skillnum.heal;
-
-    //     if(skillnum.dmg)
-    //     {
-    //         find(enemy.transform.position)
-    //         enemy.hp -=
-    //     }
-    // }
+    void ActiveSkill(int skillnum)
+    {
+        Skill skill = skills[skillnum];
+        if(skill.dir != 0)
+        {
+            Move(skill.dir);
+        }
+        if(skill.heal > 0)
+        {
+            enemy.Health += skill.heal;
+            if(enemy.Health > 100) enemy.Health = 100; //100 못 넘게함
+        }
+        if(skill.dmg != 0)
+        {
+            //player.Hit(skill.dmg);
+        }
+    }
+    void Hit(int damage)
+    {
+        enemy.Health -= damage;
+        if(enemy.Health < 0) GameObject.Destroy(this); //체력이 0이하로 떨어질 경우 사망.
+        //enemy가 다 죽었을 경우 게임 종료하는 코드 삽입 필요
+    }
 }
